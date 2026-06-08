@@ -1,0 +1,49 @@
+/* ============================================================
+   Nearby Attractions Page (Tour) - Con13
+   ============================================================ */
+.con13 {
+  padding-top: 240px;
+  padding-bottom: 240px;
+}
+@media (max-width: 1440px) {
+  .con13 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}
+.con13 .itemWrap {
+  display: grid;
+  grid-gap: 120px 40px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 70px;
+}
+@media (max-width: 1440px) {
+  .con13 .itemWrap {
+    grid-gap: 40px 20px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 40px;
+  }
+  .con13 .itemWrap img { width: 100%; }
+}
+@media (max-width: 1180px) {
+  .con13 .itemWrap { grid-template-columns: repeat(1, 1fr); }
+}
+.con13 .item { font-weight: 500; }
+.con13 .item .tx1 {
+  margin-top: 30px;
+  font-size: 14px;
+}
+.con13 .item .tx1 .bold {
+  font-size: 18px;
+  font-weight: 700;
+}
+.con13 .item .tx2 {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #111;
+  line-height: 1.4;
+}
+.con13 .item .bar {
+  margin: 0 5px;
+  font-size: 19px;
+}

@@ -1,0 +1,54 @@
+/* ============================================================
+   Index Page - Con5
+   ============================================================ */
+.con5 {
+  margin-bottom: 240px;
+  padding-top: 65px;
+  padding-bottom: 65px;
+  background-color: #f5f6f8;
+}
+@media (max-width: 1440px) {
+  .con5 {
+    margin-bottom: 0;
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+}
+.con5 .w1440 {
+  display: flex;
+  align-items: center;
+  gap: 55px;
+}
+@media (max-width: 1440px) {
+  .con5 .w1440 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+}
+.con5 .mobile { display: none; }
+@media (max-width: 1440px) {
+  .con5 .mobile { display: block; }
+}
+@media (max-width: 1440px) {
+  .con5 .pc { display: none; }
+}
+.con5 .imgWrap {
+  display: flex;
+  gap: 40px;
+}
+@media (max-width: 1440px) {
+  .con5 .imgWrap { gap: 20px; }
+  .con5 .imgWrap img { width: calc((100% - 20px) / 2); }
+}
+.con5 .t1,
+.con5 .t2 { font-size: 18px; }
+.con5 .t1 {
+  margin-top: 60px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+@media (max-width: 1440px) {
+  .con5 .t1 { margin-top: 0; }
+}
+.con5 .btnBooking_2 { margin-top: 25px; }

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-page-title></title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="styles/common.css" />
+    <link rel="stylesheet" href="styles/room.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <!-- MAPPER: rooms[?id].images[0].interior[isSelected] -->
+        <div class="con0" data-aos="fade-up">
+          <div class="swiper">
+            <div class="swiper-wrapper" data-room-hero-slides>
+              <div class="swiper-slide">
+                <img src="images/con0_3.png" alt="" />
+                <div class="tx1">하드코딩</div>
+              </div>
+              <div class="swiper-slide">
+                <img src="images/con0_1.png" alt="" />
+                <div class="tx1">하드코딩</div>
+              </div>
+              <div class="swiper-slide">
+                <img src="images/con0_1.png" alt="" />
+                <div class="tx1">하드코딩</div>
+              </div>
+            </div>
+            <div class="swiperNavi">
+              <div class="swiper-button-prev">
+                <img src="images/icon_left_1.png" alt="" />
+                Prev
+              </div>
+              <div class="bar"></div>
+              <div class="swiper-button-next">
+                Next
+                <img src="images/icon_right_1.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="con8">
+          <div class="w1440">
+            <!-- MAPPER: rooms[?id].name, description, images[0].thumbnail[0].url -->
+            <div class="textWrap">
+              <div class="conTitle2">
+                <div class="tx1">ROOM</div>
+                <!-- MAPPER: rooms[?id].name -->
+                <div class="tx2">
+                  <div class="spot" data-room-name>하드코딩</div>
+                </div>
+                <!-- MAPPER: rooms[?id].description -->
+                <div class="tx3" data-room-description>하드코딩</div>
+              </div>
+              <a href="#!" data-booking-link class="btnBooking_2">BOOKING</a>
+            </div>
+            <!-- MAPPER: rooms[?id].images[0].thumbnail[0].url -->
+            <div class="imgWrap">
+              <img src="images/con8_1.png" alt="" data-room-main-image />
+            </div>
+          </div>
+        </div>
+        <div class="con9 w1440">
+          <div class="inner">
+            <table class="pc">
+              <thead>
+                <tr>
+                  <th rowspan="2">객실명</th>
+                  <th rowspan="2">평형</th>
+                  <th rowspan="2">유형</th>
+                  <th colspan="2">인원</th>
+                  <th colspan="3">정상가</th>
+                  <th colspan="3">준성수기</th>
+                  <th colspan="3">성수기</th>
+                  <th colspan="3">극성수기</th>
+                  <th colspan="3">비수기(3)</th>
+                </tr>
+                <tr>
+                  <th>기준</th>
+                  <th>최대</th>
+                  <th>주중</th>
+                  <th>금요일</th>
+                  <th>주말</th>
+                  <th>주중</th>
+                  <th>금요일</th>
+                  <th>주말</th>
+                  <th>주중</th>
+                  <th>금요일</th>
+                  <th>주말</th>
+                  <th>주중</th>
+                  <th>금요일</th>
+                  <th>주말</th>
+                  <th>주중</th>
+                  <th>금요일</th>
+                  <th>주말</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>하드코딩</td>
+                  <td>25.00평</td>
+                  <td>하드코딩</td>
+                  <td>2</td><td>4</td>
+                  <td>199,000</td><td>249,000</td><td>399,000</td>
+                  <td>300,000</td><td>400,000</td><td>650,000</td>
+                  <td>600,000</td><td>700,000</td><td>800,000</td>
+                  <td>950,000</td><td>950,000</td><td>219,000</td>
+                  <td>279,000</td><td>429,000</td><td>279,000</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="mobile">
+              <thead>
+                <tr>
+                  <th>객실명</th>
+                  <th>기간</th>
+                  <th>주중</th>
+                  <th>금요일</th>
+                  <th>주말</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="5">하드코딩</td>
+                  <td>정상가</td><td>199,000</td><td>249,000</td><td>399,000</td>
+                </tr>
+                <tr><td>준성수기</td><td>300,000</td><td>400,000</td><td>650,000</td></tr>
+                <tr><td>성수기</td><td>600,000</td><td>700,000</td><td>800,000</td></tr>
+                <tr><td>극성수기</td><td>950,000</td><td>950,000</td><td>950,000</td></tr>
+                <tr><td>비수기(3)</td><td>219,000</td><td>279,000</td><td>429,000</td></tr>
+                <tr><th colspan="2">기준인원</th><th colspan="3">최대인원</th></tr>
+                <tr><td colspan="2">2</td><td colspan="3">4</td></tr>
+                <tr><th colspan="5">유형</th></tr>
+                <tr><td colspan="5">하드코딩</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- MAPPER: rooms[?id].images[0].exterior[isSelected][0~1] -->
+        <div class="con10 w1440">
+          <img src="images/con10_1.png" alt="" data-room-image-0 />
+          <img src="images/con10_2.png" alt="" data-room-image-1 />
+        </div>
+        <div class="con1">
+          <div class="w1440">
+            <div class="conTitle" data-aos="fade-up">
+              <div class="tx1">ROOM PREVIEW</div>
+              <div class="tx2">
+                하드코딩<br />
+                <div class="bold spot">하드코딩</div>
+              </div>
+            </div>
+            <div class="swiper-pagination" data-aos="fade-up"></div>
+            <div class="swiperControl">
+              <div class="fraction">
+                <div class="number"></div>
+                <span class="bar">/</span>
+                <div class="total"></div>
+              </div>
+              <div class="navi">
+                <div class="swiper-button-prev">
+                  <img src="images/icon_left_2.png" alt="" />
+                </div>
+                <div class="swiper-button-next">
+                  <img src="images/icon_right_2.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <!-- MAPPER: rooms[].images[0].thumbnail[0] + name -->
+            <div class="swiper right" data-aos="fade-left">
+              <div class="swiper-wrapper" data-room-room-slides>
+                <div class="swiper-slide" data-title="하드코딩">
+                  <img src="images/con1_1.png" alt="" />
+                  <a href="room.html" class="tx">
+                    <div class="tx1">하드코딩</div>
+                    <div class="tx2">하드코딩</div>
+                    <div class="more"></div>
+                  </a>
+                </div>
+                <div class="swiper-slide" data-title="하드코딩">
+                  <img src="images/con1_1.png" alt="" />
+                  <a href="room.html" class="tx">
+                    <div class="tx1">하드코딩</div>
+                    <div class="tx2">하드코딩</div>
+                    <div class="more"></div>
+                  </a>
+                </div>
+                <div class="swiper-slide" data-title="하드코딩">
+                  <img src="images/con1_1.png" alt="" />
+                  <a href="room.html" class="tx">
+                    <div class="tx1">하드코딩</div>
+                    <div class="tx2">하드코딩</div>
+                    <div class="more"></div>
+                  </a>
+                </div>
+                <div class="swiper-slide" data-title="하드코딩">
+                  <img src="images/con1_1.png" alt="" />
+                  <a href="room.html" class="tx">
+                    <div class="tx1">하드코딩</div>
+                    <div class="tx2">하드코딩</div>
+                    <div class="more"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+    <script src="js/data-mapper/pages/room-mapper.js"></script>
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+    <script src="js/header-footer-loader.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/pages/room.js"></script>
+  </body>
+</html>

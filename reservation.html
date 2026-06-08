@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-page-title></title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="styles/common.css" />
+    <link rel="stylesheet" href="styles/reservation.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <!-- MAPPER: customFields.pages.reservation.sections[0].hero.images[isSelected] -->
+        <div class="con0" data-aos="fade-up">
+          <div class="swiper">
+            <div class="swiper-wrapper" data-reservation-hero-slides>
+              <div class="swiper-slide">
+                <img src="images/con0_1.png" alt="" />
+                <div class="tx1">RESERVATION</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="conReservation w1440">
+          <div class="conTitle" data-aos="fade-up">
+            <div class="tx1">RESERVATION</div>
+            <div class="tx2">
+              <div class="bold spot">예약안내</div>
+            </div>
+          </div>
+
+          <!-- MAPPER: property.usageGuide, reservationGuide, checkInOutInfo; property.refundPolicies -->
+          <div class="reservationWrap" data-aos="fade-up">
+            <!-- MAPPER: property.usageGuide -->
+            <div class="accordion">
+              <div class="accordionHeader" data-target="usage-content">
+                <span class="accordionTitle">이용안내</span>
+                <span class="accordionIcon">+</span>
+              </div>
+              <div class="accordionContent active" id="usage-content" data-reservation-usage-content>
+                <ul>
+                  <li>입실: 15:00 / 퇴실: 11:00</li>
+                  <li>반려동물 동반 불가</li>
+                  <li>바베큐 시 별도 비용 발생</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- MAPPER: property.reservationGuide -->
+            <div class="accordion">
+              <div class="accordionHeader" data-target="reservation-guide-content">
+                <span class="accordionTitle">예약안내</span>
+                <span class="accordionIcon">+</span>
+              </div>
+              <div class="accordionContent active" id="reservation-guide-content" data-reservation-guide-content>
+                <ul>
+                  <li>실시간 예약 시스템을 통해 예약 가능합니다.</li>
+                  <li>예약 확정은 결제 완료 후 이루어집니다.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- MAPPER: property.checkInOutInfo -->
+            <div class="accordion">
+              <div class="accordionHeader" data-target="checkin-content">
+                <span class="accordionTitle">입/퇴실 안내</span>
+                <span class="accordionIcon">+</span>
+              </div>
+              <div class="accordionContent active" id="checkin-content" data-reservation-checkin-content>
+                <ul>
+                  <li>입실: 오후 3시 이후</li>
+                  <li>퇴실: 오전 11시 이전</li>
+                  <li>얼리 체크인 / 레이트 체크아웃은 별도 협의</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- MAPPER: property.refundPolicies[] (refundProcessingDays, refundRate) -->
+            <div class="accordion">
+              <div class="accordionHeader" data-target="refund-content">
+                <span class="accordionTitle">환불규정</span>
+                <span class="accordionIcon">+</span>
+              </div>
+              <div class="accordionContent active" id="refund-content">
+                <div class="tableWrap">
+                  <table class="refundTable">
+                    <thead>
+                      <tr>
+                        <th>취소 시점</th>
+                        <th>환불율</th>
+                      </tr>
+                    </thead>
+                    <tbody data-reservation-refund-table>
+                      <tr><td>7일 전</td><td>100%</td></tr>
+                      <tr><td>3~6일 전</td><td>70%</td></tr>
+                      <tr><td>2일 전</td><td>50%</td></tr>
+                      <tr><td>1일 전 / 당일</td><td>0%</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bookingWrap" data-aos="fade-up">
+            <a href="#!" data-booking-link class="btnBooking_2">실시간 예약하기</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+    <script src="js/data-mapper/pages/reservation-mapper.js"></script>
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+    <script src="js/header-footer-loader.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/pages/reservation.js"></script>
+  </body>
+</html>

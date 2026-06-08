@@ -1,0 +1,118 @@
+/* ============================================================
+   Reservation Page
+   ============================================================ */
+.conReservation {
+  padding-top: 230px;
+  padding-bottom: 230px;
+}
+@media (max-width: 1440px) {
+  .conReservation {
+    padding-top: 70px;
+    padding-bottom: 80px;
+  }
+}
+
+.reservationWrap {
+  margin-top: 80px;
+}
+@media (max-width: 1440px) {
+  .reservationWrap { margin-top: 50px; }
+}
+
+.accordion {
+  border-bottom: 1px solid #ddd;
+}
+.accordion:first-child { border-top: 1px solid #ddd; }
+
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0;
+  cursor: pointer;
+  user-select: none;
+}
+@media (max-width: 1440px) {
+  .accordionHeader { padding: 20px 0; }
+}
+.accordionTitle {
+  font-size: 20px;
+  font-weight: 700;
+}
+@media (max-width: 1440px) {
+  .accordionTitle { font-size: 16px; }
+}
+.accordionIcon {
+  font-size: 24px;
+  font-weight: 300;
+  color: #2d3a80;
+  transition: transform 0.3s;
+  line-height: 1;
+}
+.accordion.open .accordionIcon { transform: rotate(45deg); }
+
+.accordionContent {
+  display: none;
+  padding: 0 0 30px;
+}
+.accordionContent.active { display: block; }
+@media (max-width: 1440px) {
+  .accordionContent { padding-bottom: 20px; }
+}
+.accordionContent ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.accordionContent ul li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+}
+@media (max-width: 1440px) {
+  .accordionContent ul li { font-size: 14px; }
+}
+.accordionContent ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #2d3a80;
+}
+
+.tableWrap { overflow-x: auto; }
+.refundTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 15px;
+}
+@media (max-width: 1440px) {
+  .refundTable { font-size: 13px; }
+}
+.refundTable th,
+.refundTable td {
+  border: 1px solid #ddd;
+  padding: 14px 20px;
+  text-align: center;
+}
+.refundTable th {
+  background-color: #2d3a80;
+  color: #fff;
+  font-weight: 700;
+}
+.refundTable tbody tr:nth-child(even) td { background-color: #f5f6f8; }
+
+.bookingWrap {
+  margin-top: 60px;
+  text-align: center;
+}
+@media (max-width: 1440px) {
+  .bookingWrap { margin-top: 40px; }
+}

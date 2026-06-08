@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-page-title></title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="styles/common.css" />
+    <link rel="stylesheet" href="styles/room-list.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <!-- MAPPER: customFields.pages.roomList.sections[0].hero.images[isSelected] -->
+        <div class="con0" data-aos="fade-up">
+          <div class="swiper">
+            <div class="swiper-wrapper" data-room-list-hero-slides>
+              <div class="swiper-slide">
+                <img src="images/con0_3.png" alt="" />
+                <div class="tx1">ROOMS</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="conRoomList w1440">
+          <!-- MAPPER: homepage.customFields.property.name -->
+          <div class="conTitle" data-aos="fade-up">
+            <div class="tx1">ROOMS</div>
+            <div class="tx2">
+              하드코딩<br />
+              <div class="bold spot" data-property-name>하드코딩</div>
+            </div>
+          </div>
+          <div class="roomGrid" data-room-list-grid>
+            <!-- 객실 카드는 room-list-mapper.js가 동적 생성 -->
+            <div class="roomCard" data-aos="fade-up">
+              <a href="room.html">
+                <div class="imgOb">
+                  <img src="images/con1_1.png" alt="" />
+                </div>
+                <div class="info">
+                  <div class="name">하드코딩</div>
+                  <div class="desc">하드코딩</div>
+                  <div class="more">VIEW MORE</div>
+                </div>
+              </a>
+            </div>
+            <div class="roomCard" data-aos="fade-up">
+              <a href="room.html">
+                <div class="imgOb">
+                  <img src="images/con1_1.png" alt="" />
+                </div>
+                <div class="info">
+                  <div class="name">하드코딩</div>
+                  <div class="desc">하드코딩</div>
+                  <div class="more">VIEW MORE</div>
+                </div>
+              </a>
+            </div>
+            <div class="roomCard" data-aos="fade-up">
+              <a href="room.html">
+                <div class="imgOb">
+                  <img src="images/con1_1.png" alt="" />
+                </div>
+                <div class="info">
+                  <div class="name">하드코딩</div>
+                  <div class="desc">하드코딩</div>
+                  <div class="more">VIEW MORE</div>
+                </div>
+              </a>
+            </div>
+            <div class="roomCard" data-aos="fade-up">
+              <a href="room.html">
+                <div class="imgOb">
+                  <img src="images/con1_1.png" alt="" />
+                </div>
+                <div class="info">
+                  <div class="name">하드코딩</div>
+                  <div class="desc">하드코딩</div>
+                  <div class="more">VIEW MORE</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+    <script src="js/data-mapper/pages/room-list-mapper.js"></script>
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+    <script src="js/header-footer-loader.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/pages/room-list.js"></script>
+  </body>
+</html>

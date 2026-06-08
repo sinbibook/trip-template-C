@@ -1,0 +1,35 @@
+/* ============================================================
+   Layout Map Page
+   ============================================================ */
+.conLayoutMap {
+  padding-top: 230px;
+  padding-bottom: 230px;
+}
+@media (max-width: 1440px) {
+  .conLayoutMap {
+    padding-top: 70px;
+    padding-bottom: 80px;
+  }
+}
+
+.mapDesc {
+  margin-top: 40px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+}
+@media (max-width: 1440px) {
+  .mapDesc { font-size: 15px; margin-top: 25px; }
+}
+
+.mapContent {
+  margin-top: 60px;
+}
+@media (max-width: 1440px) {
+  .mapContent { margin-top: 40px; }
+}
+
+.mapItem img {
+  width: 100%;
+  display: block;
+}

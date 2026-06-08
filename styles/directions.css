@@ -1,0 +1,37 @@
+/* ============================================================
+   Directions Page (Location) - Con14
+   ============================================================ */
+.con14 { padding-top: 240px; }
+@media (max-width: 1440px) {
+  .con14 { padding-top: 70px; }
+}
+.con14 .pc { display: block; }
+@media (max-width: 1440px) {
+  .con14 .pc { display: none; }
+}
+.con14 .mobile { display: none; }
+@media (max-width: 1440px) {
+  .con14 .mobile { display: block; }
+}
+.con14 .conTitle { margin-bottom: 40px; }
+.con14 .address { font-size: 20px; }
+@media (max-width: 1440px) {
+  .con14 .address { font-size: 18px; }
+}
+.con14 .address .tx1 {
+  margin-top: 35px;
+  margin-bottom: 10px;
+  color: #2d3a80;
+  font-weight: 700;
+}
+.con14 img { width: 100%; }
+.con14 .underline { position: relative; }
+.con14 .underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+}

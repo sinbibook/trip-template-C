@@ -1,0 +1,57 @@
+<header class="header">
+  <div class="w1440">
+    <h1 class="logo">
+      <a href="index.html">
+        <!-- MAPPER: homepage.images[0].logo[isSelected].url -->
+        <img data-logo src="images/logo.png" alt="" />
+      </a>
+    </h1>
+    <nav class="menu">
+      <div class="depth1">
+        <span>WELCOME</span>
+        <div class="depth2">
+          <a href="main.html">프롤로그</a>
+          <a href="nearby-attractions.html">주변여행지</a>
+          <a href="directions.html">오시는길</a>
+        </div>
+      </div>
+      <div class="depth1">
+        <span>ROOMS</span>
+        <div class="depth2">
+          <!-- MAPPER: rooms[].name → 동적 생성 (header-footer-mapper) -->
+          <a data-room-menu-link href="room-list.html">객실 목록</a>
+        </div>
+      </div>
+      <div class="depth1">
+        <span>SPECIAL</span>
+        <div class="depth2">
+          <!-- MAPPER: property.facilities[].name → 동적 생성 (header-footer-mapper) -->
+          <a data-facility-menu-link href="facility.html">시설 안내</a>
+        </div>
+      </div>
+      <div class="depth1">
+        <span>RESERVATION</span>
+        <div class="depth2">
+          <a href="reservation.html">예약안내</a>
+          <!-- MAPPER: property.realtimeBookingId -->
+          <a data-booking-link href="#!">실시간예약</a>
+        </div>
+      </div>
+    </nav>
+    <div class="right">
+      <div class="btnReservation">
+        <!-- MAPPER: property.realtimeBookingId -->
+        <a data-booking-link href="#!">
+          <img src="images/icon_reservation.png" alt="" />
+          실시간예약
+        </a>
+      </div>
+      <div class="btnMenu">
+        <img src="images/icon_menu.png" alt="" />
+      </div>
+      <div class="btnClose">
+        <img src="images/icon_close.png" alt="" />
+      </div>
+    </div>
+  </div>
+</header>
