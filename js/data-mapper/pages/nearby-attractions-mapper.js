@@ -9,6 +9,7 @@
 
   NearbyAttractionsMapper.prototype.mapPage = function () {
     this.mapHero();
+    this.mapHeroTitle();
     this.mapAttractionCards();
   };
 
@@ -20,13 +21,53 @@
     var hero = page.sections[0].hero;
     if (!hero) return;
 
-    var tx1 = document.querySelector('.con0 .tx1');
-    if (tx1 && hero.title) tx1.textContent = hero.title;
+    var wrapper = document.querySelector('[data-nearby-attractions-hero-slides]');
+    if (!wrapper) return;
 
-    if (hero.imageUrl) {
-      var img = document.querySelector('.con0 .swiper-slide img');
-      if (img) img.src = hero.imageUrl;
+    var images = this.getSelectedImages(hero.images || []);
+    wrapper.innerHTML = '';
+
+    if (!images.length) {
+      var placeholderDiv = document.createElement('div');
+      placeholderDiv.className = 'swiper-slide';
+      var imgDiv = document.createElement('div');
+      imgDiv.className = 'img';
+      imgDiv.style.backgroundColor = '#f0f0f0';
+      imgDiv.style.backgroundImage = ImageHelpers.EMPTY_IMAGE_SVG;
+      imgDiv.style.backgroundRepeat = 'no-repeat';
+      imgDiv.style.backgroundPosition = 'center';
+      imgDiv.style.backgroundSize = 'cover';
+      placeholderDiv.appendChild(imgDiv);
+      wrapper.appendChild(placeholderDiv);
+      return;
     }
+
+    images.forEach(function (img) {
+      var div = document.createElement('div');
+      div.className = 'swiper-slide';
+      var imgDiv = document.createElement('div');
+      imgDiv.className = 'img';
+      imgDiv.style.backgroundImage = 'url(' + img.url + ')';
+      imgDiv.style.backgroundPosition = 'center';
+      imgDiv.style.backgroundSize = 'cover';
+      div.appendChild(imgDiv);
+      wrapper.appendChild(div);
+    });
+  };
+
+  NearbyAttractionsMapper.prototype.mapHeroTitle = function () {
+    var pages = this.getPages();
+    var page = pages.nearbyAttractions;
+    if (!page || !page.sections || !page.sections[0]) return;
+
+    var hero = page.sections[0].hero;
+    if (!hero) return;
+
+    var titleEl = document.querySelector('[data-nearby-attractions-hero-title]');
+    if (titleEl && hero.title) titleEl.textContent = hero.title;
+
+    var descEl = document.querySelector('[data-nearby-attractions-hero-description]');
+    if (descEl && hero.description) descEl.textContent = hero.description;
   };
 
   NearbyAttractionsMapper.prototype.mapAttractionCards = function () {
@@ -37,7 +78,7 @@
     var about = page.sections[0].about;
     if (!about || !about.length) return;
 
-    var itemWrap = document.querySelector('.con13 .itemWrap');
+    var itemWrap = document.querySelector('[data-nearby-attractions-items]');
     if (!itemWrap) return;
 
     itemWrap.innerHTML = '';
@@ -45,15 +86,41 @@
       var div = document.createElement('div');
       div.className = 'item';
       div.setAttribute('data-aos', 'fade-up');
-      var imgUrl = item.imageUrl || '';
-      div.innerHTML =
-        '<img src="' + imgUrl + '" alt="" />' +
-        '<div class="tx1">' +
-          '<span class="bold">' + (item.name || '') + '</span>' +
-          '<span class="bar">｜</span>' +
-          (item.distance || '') +
-        '</div>' +
-        '<div class="tx2">' + (item.description || '') + '</div>';
+
+      // Get first selected image
+      var images = item.images || [];
+      var selectedImage = images.find(function (img) { return img.isSelected; }) || images[0];
+      var selectedImageIndex = images.findIndex(function (img) { return img.isSelected; });
+      if (selectedImageIndex === -1) selectedImageIndex = 0;
+
+      // Create img element with placeholder handling
+      var img = document.createElement('img');
+      if (selectedImage && selectedImage.url) {
+        img.src = selectedImage.url;
+        img.alt = item.title || '';
+      } else {
+        ImageHelpers.applyPlaceholder(img);
+        img.alt = item.title || '';
+      }
+
+      div.appendChild(img);
+
+      // Get distance info from selected image description
+      var distanceInfo = (selectedImage && selectedImage.description) ? selectedImage.description : '';
+
+      var tx1 = document.createElement('div');
+      tx1.className = 'tx1';
+      tx1.innerHTML =
+        '<span class="bold">' + (item.title || '') + '</span>' +
+        '<span class="bar">｜</span>' +
+        distanceInfo;
+
+      var tx2 = document.createElement('div');
+      tx2.className = 'tx2';
+      tx2.textContent = item.description || '';
+
+      div.appendChild(tx1);
+      div.appendChild(tx2);
       itemWrap.appendChild(div);
     });
   };

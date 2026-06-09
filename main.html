@@ -6,7 +6,12 @@
     <title data-page-title></title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="styles/common.css" />
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/theme.css" as="style">
+    <link rel="preload" href="styles/common.css" as="style">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/common.css">
     <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
@@ -47,7 +52,8 @@
             <div class="tx1">ABOUT &amp; VIEW</div>
             <div class="tx2">
               쉼이 필요한 날,<br />
-              <div class="bold spot">하드코딩을 만나다</div>
+              <!-- MAPPER: property.name + 을/를 판별 -->
+              <div class="bold spot" data-about-title></div>
             </div>
           </div>
           <!-- MAPPER: customFields.pages.main.sections[0].about[0].images[0].url -->
@@ -57,10 +63,6 @@
           <!-- MAPPER: customFields.pages.main.sections[0].about[0].description -->
           <div class="txWrap" data-aos="fade-up" data-main-about-description>
             <div class="t1">
-              <span>#만나고 싶었던 공간</span>
-              <span>#특별한 일상으로 초대</span>
-              <span>#우리만의 안식처</span>
-              <span>#건강한 여행</span>
             </div>
           </div>
           <div class="bottom">
@@ -79,23 +81,25 @@
         <div class="con4">
           <div class="conTitle" data-aos="fade-up">
             <div class="tx0">Make your Stay Even Better</div>
+            <!-- MAPPER: property.name (typing 섹션) -->
             <div class="typing-container tx2">
               <div class="typing-wrapper">
                 <div class="typing-line-wrapper">
-                  <div id="typing1" class="typing-line">하드코딩</div>
+                  <div id="typing1" class="typing-line"></div>
                   <div class="cursor" id="cursor1"></div>
                 </div>
                 <div class="typing-line-wrapper">
-                  <div id="typing2" class="typing-line bold spot">하드코딩</div>
+                  <div id="typing2" class="typing-line bold spot"></div>
                   <div class="cursor" id="cursor2"></div>
                 </div>
               </div>
             </div>
           </div>
+          <!-- MAPPER: property.name + property.nameEn (con4 하단) -->
           <div class="t0" data-aos="fade-up">
-            <span class="t1">하드코딩</span>
+            <span class="t1"></span>
             <span class="bar">|</span>
-            <span class="t2">Welcome To 하드코딩</span>
+            <span class="t2"></span>
           </div>
           <a href="#!" data-booking-link class="btnBooking" data-aos="fade-up">
             <div class="circle">
@@ -111,6 +115,7 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/image-helpers.js"></script>
     <script src="js/data-mapper/core/base-mapper.js"></script>
     <script src="js/data-mapper/pages/main-mapper.js"></script>
     <script src="js/data-mapper/pages/header-footer-mapper.js"></script>

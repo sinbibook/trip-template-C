@@ -8,16 +8,15 @@
     </h1>
     <nav class="menu">
       <div class="depth1">
-        <span>WELCOME</span>
+        <span>ABOUT</span>
         <div class="depth2">
-          <a href="main.html">프롤로그</a>
-          <a href="nearby-attractions.html">주변여행지</a>
-          <a href="directions.html">오시는길</a>
+          <a href="main.html">펜션소개</a>
         </div>
       </div>
       <div class="depth1">
         <span>ROOMS</span>
         <div class="depth2">
+          <a href="layout-map.html">미리보기</a>
           <!-- MAPPER: rooms[].name → 동적 생성 (header-footer-mapper) -->
           <a data-room-menu-link href="room-list.html">객실 목록</a>
         </div>
@@ -30,11 +29,23 @@
         </div>
       </div>
       <div class="depth1">
-        <span>RESERVATION</span>
+        <span>RESERVE</span>
         <div class="depth2">
-          <a href="reservation.html">예약안내</a>
           <!-- MAPPER: property.realtimeBookingId -->
-          <a data-booking-link href="#!">실시간예약</a>
+          <a data-booking-link href="#!">예약하기</a>
+          <a href="reservation.html">이용안내</a>
+        </div>
+      </div>
+      <div class="depth1">
+        <span>TRAVEL</span>
+        <div class="depth2">
+          <a href="nearby-attractions.html">주변여행지</a>
+        </div>
+      </div>
+      <div class="depth1">
+        <span>LOCATION</span>
+        <div class="depth2">
+          <a href="directions.html">오시는길</a>
         </div>
       </div>
     </nav>
@@ -43,7 +54,14 @@
         <!-- MAPPER: property.realtimeBookingId -->
         <a data-booking-link href="#!">
           <img src="images/icon_reservation.png" alt="" />
-          실시간예약
+          예약하기
+        </a>
+      </div>
+      <div class="btnYbs" data-ybs-button style="display: none;">
+        <!-- MAPPER: property.ybsId -->
+        <a href="#!">
+          <img src="images/icon_reservation.png" alt="" />
+          YBS
         </a>
       </div>
       <div class="btnMenu">

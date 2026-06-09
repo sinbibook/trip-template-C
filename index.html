@@ -6,7 +6,12 @@
     <title data-page-title></title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="styles/common.css" />
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/theme.css" as="style">
+    <link rel="preload" href="styles/common.css" as="style">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/common.css">
     <link rel="stylesheet" href="styles/index.css" />
   </head>
   <body>
@@ -15,20 +20,7 @@
         <div class="con0" data-aos="fade-up">
           <div class="swiper">
             <!-- MAPPER: customFields.pages.index.sections[0].hero.images[isSelected] -->
-            <div class="swiper-wrapper" data-index-hero-slides>
-              <div class="swiper-slide">
-                <img src="images/con0_1.png" alt="" />
-                <div class="tx1">하드코딩</div>
-              </div>
-              <div class="swiper-slide">
-                <img src="images/con0_4.png" alt="" />
-                <div class="tx1">하드코딩</div>
-              </div>
-              <div class="swiper-slide">
-                <img src="images/con0_3.png" alt="" />
-                <div class="tx1">하드코딩</div>
-              </div>
-            </div>
+            <div class="swiper-wrapper" data-index-hero-slides></div>
             <div class="swiperNavi">
               <div class="swiper-button-prev">
                 <img src="images/icon_left_1.png" alt="" />
@@ -46,10 +38,11 @@
           <div class="w1440">
             <div class="conTitle" data-aos="fade-up">
               <div class="tx1">ROOM PREVIEW</div>
+              <!-- 여유롭고 특별한 공간 하드코딩 / 숙소명 매핑 -->
               <div class="tx2">
-                하드코딩<br />
+                여유롭고 특별한 공간<br />
                 <!-- MAPPER: homepage.customFields.property.name -->
-                <div class="bold spot" data-property-name>하드코딩</div>
+                <div class="bold spot" data-property-name></div>
               </div>
             </div>
             <div class="swiper-pagination" data-aos="fade-up"></div>
@@ -70,93 +63,48 @@
             </div>
             <!-- MAPPER: rooms[].images[0].thumbnail[0].url + name + description -->
             <div class="swiper right" data-aos="fade-left">
-              <div class="swiper-wrapper" data-index-room-slides>
-                <div class="swiper-slide" data-title="하드코딩">
-                  <img src="images/con1_1.png" alt="" />
-                  <a href="room.html" class="tx">
-                    <div class="tx1">하드코딩</div>
-                    <div class="tx2">하드코딩</div>
-                    <div class="more"></div>
-                  </a>
-                </div>
-                <div class="swiper-slide" data-title="하드코딩">
-                  <img src="images/con1_1.png" alt="" />
-                  <a href="room.html" class="tx">
-                    <div class="tx1">하드코딩</div>
-                    <div class="tx2">하드코딩</div>
-                    <div class="more"></div>
-                  </a>
-                </div>
-                <div class="swiper-slide" data-title="하드코딩">
-                  <img src="images/con1_1.png" alt="" />
-                  <a href="room.html" class="tx">
-                    <div class="tx1">하드코딩</div>
-                    <div class="tx2">하드코딩</div>
-                    <div class="more"></div>
-                  </a>
-                </div>
-                <div class="swiper-slide" data-title="하드코딩">
-                  <img src="images/con1_1.png" alt="" />
-                  <a href="room.html" class="tx">
-                    <div class="tx1">하드코딩</div>
-                    <div class="tx2">하드코딩</div>
-                    <div class="more"></div>
-                  </a>
-                </div>
-              </div>
+              <div class="swiper-wrapper" data-index-room-slides></div>
             </div>
           </div>
         </div>
         <!-- MAPPER: property.facilities[].images[isSelected][0].url + name -->
         <div class="con3">
-          <div class="conTitle" data-aos="fade-up">
-            <div class="tx1">SPECIAL PREVIEW</div>
-            <div class="tx2">
-              <div class="bold spot">다양한 즐길거리</div>
+          <div class="w1440">
+            <div class="conTitle" data-aos="fade-up">
+              <div class="tx1">SPECIAL PREVIEW</div>
+              <div class="tx2">
+                <div class="bold spot">다양한 즐길거리</div>
+              </div>
             </div>
-          </div>
-          <div class="swiper-pagination" data-aos="fade-up"></div>
-          <!-- MAPPER: facility cards 동적 생성 -->
-          <div class="swiper">
-            <div class="swiper-wrapper" data-index-facility-slides>
-              <div class="swiper-slide" data-title="오션뷰온수풀">
-                <a href="facility.html"><img src="images/con3_1.png" alt="" /></a>
-              </div>
-              <div class="swiper-slide" data-title="오션뷰온수풀">
-                <a href="facility.html"><img src="images/con3_1.png" alt="" /></a>
-              </div>
-              <div class="swiper-slide" data-title="오션뷰온수풀">
-                <a href="facility.html"><img src="images/con3_1.png" alt="" /></a>
-              </div>
-              <div class="swiper-slide" data-title="오션뷰온수풀">
-                <a href="facility.html"><img src="images/con3_1.png" alt="" /></a>
-              </div>
-              <div class="swiper-slide" data-title="오션뷰온수풀">
-                <a href="facility.html"><img src="images/con3_1.png" alt="" /></a>
-              </div>
+            <div class="swiper-pagination" data-aos="fade-up"></div>
+            <!-- MAPPER: facility cards 동적 생성 -->
+            <div class="swiper">
+              <div class="swiper-wrapper" data-index-facility-slides></div>
             </div>
           </div>
         </div>
         <div class="con4">
           <div class="conTitle" data-aos="fade-up">
             <div class="tx0">Make your Stay Even Better</div>
+            <!-- MAPPER: property.name (typing 섹션) -->
             <div class="typing-container tx2">
               <div class="typing-wrapper">
                 <div class="typing-line-wrapper">
-                  <div id="typing1" class="typing-line">하드코딩</div>
+                  <div id="typing1" class="typing-line"></div>
                   <div class="cursor" id="cursor1"></div>
                 </div>
                 <div class="typing-line-wrapper">
-                  <div id="typing2" class="typing-line bold spot">하드코딩</div>
+                  <div id="typing2" class="typing-line bold spot"></div>
                   <div class="cursor" id="cursor2"></div>
                 </div>
               </div>
             </div>
           </div>
+          <!-- MAPPER: property.name + property.nameEn (con4 하단) -->
           <div class="t0" data-aos="fade-up">
-            <span class="t1">하드코딩</span>
+            <span class="t1"></span>
             <span class="bar">|</span>
-            <span class="t2">Welcome To 하드코딩</span>
+            <span class="t2"></span>
           </div>
           <a href="#!" data-booking-link class="btnBooking" data-aos="fade-up">
             <div class="circle">
@@ -172,10 +120,11 @@
             <div class="conTitle mobile">
               <div class="tx2">
                 <!-- MAPPER: homepage.customFields.property.name -->
-                <span class="bold spot" data-property-name>하드코딩</span><br />
+                <span class="bold spot" data-property-name></span><br />
                 <span class="bold spot">찾아오시는 길</span>
               </div>
             </div>
+            <!-- MAPPER: customFields.pages.index.sections[0].signature.images[isSelected] -->
             <div class="imgWrap">
               <img src="images/con5_1.png" alt="" data-aos="fade-up" />
               <img src="images/con5_2.png" alt="" data-aos="fade-up" />
@@ -184,14 +133,15 @@
               <div class="conTitle pc">
                 <div class="tx2">
                   <!-- MAPPER: homepage.customFields.property.name -->
-                  <span class="bold spot" data-property-name>하드코딩</span><br />
+                  <span class="bold spot" data-property-name></span><br />
                   <span class="bold spot">찾아오시는 길</span>
                 </div>
               </div>
               <div class="t1">네이게이션 검색 시</div>
               <!-- MAPPER: property.address -->
-              <div class="t2" data-directions-address>하드코딩</div>
-              <a href="directions.html" class="btnBooking_2">BOOKING</a>
+              <div class="t2" data-directions-address></div>
+              <!-- MAPPER: property.realtimeBookingId -->
+              <a href="#!" data-booking-link class="btnBooking_2">BOOKING</a>
             </div>
           </div>
         </div>
@@ -201,6 +151,7 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/image-helpers.js"></script>
     <script src="js/data-mapper/core/base-mapper.js"></script>
     <script src="js/data-mapper/pages/index-mapper.js"></script>
     <script src="js/data-mapper/pages/header-footer-mapper.js"></script>

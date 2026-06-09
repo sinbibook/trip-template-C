@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 
 /* ============================================================
    Reset
@@ -52,11 +51,8 @@ img {
 
 body {
   font-size: 14px;
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
-    system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
-    "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", sans-serif;
-  color: #000;
+  font-family: var(--font-ko-main);
+  color: var(--color-secondary);
   line-height: 1.2;
 }
 
@@ -112,7 +108,7 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #2d3a80;
+  background-color: var(--color-primary);
   color: #fff;
   font-size: 14px;
   font-weight: 600;
@@ -127,7 +123,7 @@ body {
   justify-content: center;
   width: 60px;
   height: 60px;
-  background: #263895;
+  background: var(--color-primary);
   border-radius: 50%;
 }
 .btnBooking .circle img {
@@ -167,11 +163,11 @@ body {
   gap: 20px;
   width: 250px;
   height: 55px;
-  border: 1px solid #2d3a80;
+  border: 1px solid var(--color-primary);
   font-size: 15px;
   font-weight: 600;
   font-style: italic;
-  background: linear-gradient(to right, rgba(96, 70, 58, 0) 25%, #2d3a80);
+  background: linear-gradient(to right, rgba(96, 70, 58, 0) 25%, var(--color-primary));
   background-position: 1% 50%;
   background-size: 400% 300%;
   transition: 3s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -205,7 +201,7 @@ body {
 .conTitle .tx1 {
   font-size: 18px;
   font-weight: 800;
-  color: #2d3a80;
+  color: var(--color-primary);
 }
 @media (max-width: 1440px) {
   .conTitle .tx1 { font-size: 16px; }
@@ -245,7 +241,7 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #2d3a80;
+  background-color: var(--color-primary);
 }
 @media (max-width: 1440px) {
   .conTitle .spot::after {
@@ -258,7 +254,7 @@ body {
 .conTitle2 .tx1 {
   font-size: 18px;
   font-weight: 600;
-  color: #2d3a80;
+  color: var(--color-primary);
 }
 @media (max-width: 1440px) {
   .conTitle2 .tx1 { font-size: 16px; }
@@ -286,23 +282,6 @@ body {
   }
 }
 .conTitle2 .spot { position: relative; }
-.conTitle2 .spot::after {
-  content: "";
-  position: absolute;
-  right: -20px;
-  bottom: 5px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #2d3a80;
-}
-@media (max-width: 1440px) {
-  .conTitle2 .spot::after {
-    right: -10px;
-    width: 6px;
-    height: 6px;
-  }
-}
 
 /* ============================================================
    Header
@@ -317,7 +296,7 @@ body {
 }
 @media (max-width: 1440px) {
   .header.active {
-    background-color: #343d7d;
+    background-color: var(--color-primary);
   }
   .header.active .menu {
     display: flex;
@@ -350,10 +329,10 @@ body {
     position: relative;
     inset: 0;
     transform: translate(0);
-    background-color: #182257;
+    background: rgba(255, 255, 255, 0.3);
   }
   .header.active .menu .depth2::after { display: none; }
-  .header.active .btnReservation { display: none; }
+  .header.active .btnReservation { display: flex; }
   .header.active .btnMenu { display: none; }
   .header.active .btnClose { display: block; }
 }
@@ -366,8 +345,9 @@ body {
 @media (max-width: 1440px) {
   .header .w1440 { height: 80px; }
 }
+.header .logo { width: 140px; }
 @media (max-width: 1440px) {
-  .header .logo { width: 110px; }
+  .header .logo { width: 120px; }
 }
 .header .menu {
   display: flex;
@@ -380,7 +360,7 @@ body {
     position: fixed;
     inset: 0;
     top: 80px;
-    background-color: #343d7d;
+    background-color: var(--color-primary);
     overflow-y: auto;
   }
   .header .menu .depth1 {
@@ -399,7 +379,7 @@ body {
     transform: translateX(-50%);
     width: 50%;
     height: 1px;
-    background-color: #2d3a80;
+    background-color: var(--color-primary);
   }
   .header .menu .depth1 > span {
     display: inline-flex;
@@ -432,7 +412,7 @@ body {
     transform: translateX(-50%);
     width: 50%;
     height: 1px;
-    background-color: #2d3a80;
+    background-color: var(--color-primary);
   }
   .header .menu .depth1:hover .depth2 a:hover { text-decoration: underline; }
   .header .menu .depth1 > span {
@@ -455,7 +435,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   padding: 25px;
-  background-color: rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.3);
   transition: all 0.3s;
 }
 @media (min-width: 1441px) {
@@ -487,7 +467,8 @@ body {
   display: none;
   cursor: pointer;
 }
-.header .btnReservation a {
+.header .btnReservation a,
+.header .btnYbs a {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -496,11 +477,47 @@ body {
   color: #fff;
 }
 @media (max-width: 1440px) {
-  .header .btnReservation a {
+  .header .btnReservation a,
+  .header .btnYbs a {
     gap: 8px;
     font-size: 14px;
   }
-  .header .btnReservation a img { width: 20px; }
+  .header .btnReservation a img,
+  .header .btnYbs a img { width: 20px; }
+}
+
+/* ============================================================
+   Mobile Floating Reservation Button
+   ============================================================ */
+.mobileReservationBtn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  z-index: 99;
+}
+.mobileReservationBtn a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  background-color: var(--color-primary);
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+@media (max-width: 1440px) {
+  .mobileReservationBtn {
+    display: flex;
+  }
+  .mobileReservationBtn a {
+    gap: 8px;
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+  .mobileReservationBtn a img { width: 20px; }
 }
 
 /* ============================================================
@@ -530,7 +547,7 @@ body {
   z-index: -1;
   width: 300px;
   height: 300px;
-  background-color: #2d3a80;
+  background-color: var(--color-primary);
   border-radius: 50%;
   transition: all 4s;
 }
@@ -592,31 +609,41 @@ body {
 /* ============================================================
    Con0 - Hero Slider (공통)
    ============================================================ */
-.con0 { position: relative; }
+.con0 {
+  position: relative;
+}
 .con0.noSwiper .tx1 { bottom: 30px; }
+.con0 .swiper-slide {
+  position: relative;
+  aspect-ratio: 1920 / 920;
+  width: 100%;
+}
+.con0 .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .con0 .tx1 {
   position: absolute;
-  bottom: 130px;
+  bottom: 115px;
   left: 50%;
+  z-index: 11;
   transform: translateX(-50%);
-  font-size: 40px;
+  font-size: 35px;
   color: #fff;
 }
 @media (max-width: 1440px) {
+  .con0 .swiper-slide {
+    height: 420px;
+  }
   .con0 .tx1 {
     bottom: 60px;
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 @media (max-width: 1180px) {
   .con0 .swiper-slide {
-    position: relative;
     height: 300px;
-  }
-  .con0 .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 }
 .con0 .swiperNavi {
@@ -666,6 +693,9 @@ body {
 .con0 .swiper-rtl .swiper-button-prev:after,
 .con0 .swiper-button-prev:after,
 .con0 .swiper-rtl .swiper-button-next:after { display: none; }
+.con0 .swiper-navigation-icon,
+.con1 .swiper-navigation-icon,
+.con3 .swiper-navigation-icon { display: none; }
 
 /* ============================================================
    Con1 - Room Preview Slider (index, room 공통)
@@ -727,26 +757,25 @@ body {
   font-size: 14px;
   font-weight: 600;
 }
-.con1 .fraction .number { color: #2d3a80; }
+.con1 .fraction .number { color: var(--color-primary); }
 .con1 .fraction .bar { color: #ddd; }
 .con1 .fraction .total { color: #ddd; }
 .con1 .swiper-slide {
   position: relative;
   transition: all 0.8s;
   overflow: hidden;
+  aspect-ratio: 1 / 1;
 }
 @media (max-width: 1440px) {
   .con1 .swiper-slide { width: 100%; }
 }
 @media (max-width: 1180px) {
-  .con1 .swiper-slide { height: 200px; }
+  .con1 .swiper-slide { aspect-ratio: 1 / 1; }
 }
-.con1 .swiper-slide img { width: 100%; }
-@media (max-width: 1440px) {
-  .con1 .swiper-slide img {
-    height: 100%;
-    object-fit: cover;
-  }
+.con1 .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .con1 .swiper-slide:hover { border-radius: 50%; }
 @media (max-width: 1180px) {
@@ -798,7 +827,7 @@ body {
   height: 45px;
   margin-top: 20px;
   border-radius: 50%;
-  background-color: #2d3a80;
+  background-color: var(--color-primary);
   background-image: url(../images/icon_plus.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -875,7 +904,7 @@ body {
   opacity: 1;
   font-size: 28px;
   font-weight: 600;
-  color: #2d3a80;
+  color: var(--color-primary);
 }
 @media (max-width: 1440px) {
   .con1 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet-active,
@@ -892,12 +921,13 @@ body {
 /* ============================================================
    Con3 - Special Preview Slider (index, facility 공통)
    ============================================================ */
-.con3 {
-  padding-top: 100px;
-  text-align: center;
-}
+/* Con3 - Facility Preview (기존 con3-1 스타일) */
+.con3 { padding-top: 100px; text-align: center; }
 @media (max-width: 1440px) {
   .con3 { padding-top: 0; }
+}
+@media (max-width: 1440px) {
+  .con3 .conTitle { margin-bottom: 30px; }
 }
 .con3.mb230 { margin-bottom: 230px; }
 @media (max-width: 1440px) {
@@ -906,16 +936,48 @@ body {
 @media (max-width: 1440px) {
   .con3 .swiper { margin-top: 40px; }
 }
-.con3 .swiper-slide { position: relative; }
+.con3 .swiper-slide { position: relative; overflow: hidden; }
 @media (max-width: 1180px) {
   .con3 .swiper-slide { height: 200px; }
 }
-@media (max-width: 1180px) {
-  .con3 .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.con3 .swiper-wrapper { height: auto; }
+.con3 .swiper-slide:hover:before { background-color: rgba(0, 0, 0, 0.4); aspect-ratio: 1920/515; }
+.con3 .swiper-slide:hover .more { opacity: 1; }
+.con3 .swiper-slide:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0);
+  pointer-events: none;
+}
+.con3 .swiper-slide .more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  background-image: url(../images/icon_plus.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 30px;
+  transition: all 0.3s;
+}
+.con3 .swiper-slide .img {
+  width: 100%;
+  aspect-ratio: 1920/515;
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 1440px) {
+  .con3 .swiper-slide .img { height: 200px; }
+  .con3 .swiper-slide:hover:before { height: 200px; }
 }
 .con3 .swiper-pagination {
   display: flex;
@@ -941,7 +1003,7 @@ body {
 }
 .con3 .swiper-pagination-bullet-active {
   position: relative;
-  color: #2d3a80;
+  color: var(--color-primary);
 }
 .con3 .swiper-pagination-bullet-active:after {
   content: "";
@@ -950,7 +1012,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 1px;
-  background-color: #2d3a80;
+  background-color: var(--color-primary);
 }
 
 /* ============================================================
@@ -1029,7 +1091,7 @@ body {
   }
 }
 .con4 .t0 .t1 {
-  color: #2d3a80;
+  color: var(--color-primary);
   font-weight: 600;
 }
 .con4 .t0 .bar { color: #ddd; }

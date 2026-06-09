@@ -6,109 +6,34 @@
     <title data-page-title></title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="styles/common.css" />
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/theme.css" as="style">
+    <link rel="preload" href="styles/common.css" as="style">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/common.css">
     <link rel="stylesheet" href="styles/nearby-attractions.css" />
   </head>
   <body>
     <div class="wrapper">
       <div class="container">
-        <div class="con0 noSwiper" data-aos="fade-up">
-          <div class="swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="images/con0_5.png" alt="" />
-                <div class="tx1">주변 여행지</div>
-              </div>
-            </div>
+        <!-- MAPPER: customFields.pages.nearbyAttractions.sections[0].hero.images[isSelected] -->
+        <div class="con01" data-aos="fade-up">
+          <div class="img swiper-container">
+            <div class="swiper-wrapper" data-nearby-attractions-hero-slides></div>
           </div>
+          <div class="tx1_1">주변 여행지</div>
         </div>
+        <!-- MAPPER: nearbyAttractions.sections[0].hero.title + description -->
         <div class="con13 w1440">
           <div class="conTitle" data-aos="fade-up">
-            <div class="tx1">TRAVL</div>
+            <div class="tx1" data-nearby-attractions-hero-title>TRAVL</div>
             <div class="tx2">
-              <span class="bold spot">여행하기 좋은도시</span>
+              <span class="bold spot" data-nearby-attractions-hero-description>여행하기 좋은도시</span>
             </div>
           </div>
-          <div class="itemWrap">
-            <div class="item" data-aos="fade-up">
-              <img src="images/con13_1.png" alt="" />
-              <div class="tx1">
-                <span class="bold">태안빛축제</span>
-                <span class="bar">｜</span>
-                펜션에서 약 0.4km 도보 약 3분거리
-              </div>
-              <div class="tx2">
-                일년 365일 연중무휴로 진행되는 태안빛축제가 대한민국의 밤하늘을
-                책임진다. 낮에는 아름다운 꽃 축제가 펼쳐지며, 밤에는 빛나는
-                빛축제가 열린다.
-              </div>
-            </div>
-            <div class="item" data-aos="fade-up">
-              <img src="images/con13_2.png" alt="" />
-              <div class="tx1">
-                <span class="bold">태안빛축제</span>
-                <span class="bar">｜</span>
-                펜션에서 약 0.4km 도보 약 3분거리
-              </div>
-              <div class="tx2">
-                일년 365일 연중무휴로 진행되는 태안빛축제가 대한민국의 밤하늘을
-                책임진다. 낮에는 아름다운 꽃 축제가 펼쳐지며, 밤에는 빛나는
-                빛축제가 열린다.
-              </div>
-            </div>
-            <div class="item" data-aos="fade-up">
-              <img src="images/con13_3.png" alt="" />
-              <div class="tx1">
-                <span class="bold">태안빛축제</span>
-                <span class="bar">｜</span>
-                펜션에서 약 0.4km 도보 약 3분거리
-              </div>
-              <div class="tx2">
-                일년 365일 연중무휴로 진행되는 태안빛축제가 대한민국의 밤하늘을
-                책임진다. 낮에는 아름다운 꽃 축제가 펼쳐지며, 밤에는 빛나는
-                빛축제가 열린다.
-              </div>
-            </div>
-            <div class="item" data-aos="fade-up">
-              <img src="images/con13_4.png" alt="" />
-              <div class="tx1">
-                <span class="bold">태안빛축제</span>
-                <span class="bar">｜</span>
-                펜션에서 약 0.4km 도보 약 3분거리
-              </div>
-              <div class="tx2">
-                일년 365일 연중무휴로 진행되는 태안빛축제가 대한민국의 밤하늘을
-                책임진다. 낮에는 아름다운 꽃 축제가 펼쳐지며, 밤에는 빛나는
-                빛축제가 열린다.
-              </div>
-            </div>
-            <div class="item" data-aos="fade-up">
-              <img src="images/con13_5.png" alt="" />
-              <div class="tx1">
-                <span class="bold">태안빛축제</span>
-                <span class="bar">｜</span>
-                펜션에서 약 0.4km 도보 약 3분거리
-              </div>
-              <div class="tx2">
-                일년 365일 연중무휴로 진행되는 태안빛축제가 대한민국의 밤하늘을
-                책임진다. 낮에는 아름다운 꽃 축제가 펼쳐지며, 밤에는 빛나는
-                빛축제가 열린다.
-              </div>
-            </div>
-            <div class="item" data-aos="fade-up">
-              <img src="images/con13_6.png" alt="" />
-              <div class="tx1">
-                <span class="bold">태안빛축제</span>
-                <span class="bar">｜</span>
-                펜션에서 약 0.4km 도보 약 3분거리
-              </div>
-              <div class="tx2">
-                일년 365일 연중무휴로 진행되는 태안빛축제가 대한민국의 밤하늘을
-                책임진다. 낮에는 아름다운 꽃 축제가 펼쳐지며, 밤에는 빛나는
-                빛축제가 열린다.
-              </div>
-            </div>
-          </div>
+          <!-- MAPPER: nearbyAttractions.sections[0].about[] (title, distance, description, image) -->
+          <div class="itemWrap" data-nearby-attractions-items></div>
         </div>
       </div>
     </div>
@@ -116,6 +41,7 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/image-helpers.js"></script>
     <script src="js/data-mapper/core/base-mapper.js"></script>
     <script src="js/data-mapper/pages/nearby-attractions-mapper.js"></script>
     <script src="js/data-mapper/pages/header-footer-mapper.js"></script>

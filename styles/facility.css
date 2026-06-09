@@ -55,7 +55,7 @@
   font-size: 18px;
   font-weight: 700;
   white-space: nowrap;
-  color: #2d3a80;
+  color: var(--color-primary);
 }
 @media (max-width: 1180px) {
   .con12 .img .num,
@@ -188,4 +188,59 @@
 }
 @media (max-width: 1440px) {
   .con12 .img_3 .text { bottom: 10px; }
+}
+
+/* ============================================================
+   Facility Page - Con3 Special Preview Pagination
+   ============================================================ */
+.con3 .swiper-pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  position: relative;
+  inset: 0;
+}
+
+@media (max-width: 1440px) {
+  .con3 .swiper-pagination {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+.con3 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.con3 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  width: auto;
+  height: auto;
+  margin: 0;
+  background: none;
+  border-radius: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+@media (max-width: 1440px) {
+  .con3 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+  .con3 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    font-size: 14px;
+    padding: 1px;
+  }
+}
+
+.con3 .swiper-pagination-bullet-active {
+  position: relative;
+  color: var(--color-primary);
+}
+
+.con3 .swiper-pagination-bullet-active:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-primary);
 }

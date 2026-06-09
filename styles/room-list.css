@@ -72,7 +72,7 @@
   margin-top: 20px;
   font-size: 13px;
   font-weight: 700;
-  color: #2d3a80;
+  color: var(--color-primary);
   letter-spacing: 0.05em;
 }
 .roomCard .info .more::after {

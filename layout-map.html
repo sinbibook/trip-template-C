@@ -6,35 +6,71 @@
     <title data-page-title></title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="styles/common.css" />
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/theme.css" as="style">
+    <link rel="preload" href="styles/common.css" as="style">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/common.css">
     <link rel="stylesheet" href="styles/layout-map.css" />
   </head>
   <body>
     <div class="wrapper">
       <div class="container">
-        <div class="con0" data-aos="fade-up">
-          <div class="swiper">
+        <!-- MAPPER: customFields.pages.layout-map.sections[0].hero.images[isSelected] -->
+        <div class="con01" data-aos="fade-up">
+          <div class="img swiper-container">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img src="images/con0_1.png" alt="" data-layout-map-hero-image />
-                <div class="tx1">배치도</div>
+                <div class="img" data-layout-map-hero-image></div>
               </div>
             </div>
           </div>
+          <div class="tx1_1">객실 미리보기</div>
         </div>
-        <div class="conLayoutMap w1440">
+
+        <!-- MAPPER: customFields.pages.layout-map.sections[0].about + images -->
+        <div class="con14 w1440">
           <div class="conTitle" data-aos="fade-up">
-            <div class="tx1">LAYOUT MAP</div>
+            <div class="tx1">ROOM PREVIEW</div>
             <div class="tx2">
-              <div class="bold spot" data-layout-map-about-title>숙소 배치도</div>
+              <span class="bold spot">객실 배치도</span>
             </div>
           </div>
-          <div class="mapDesc" data-aos="fade-up">
-            <p data-layout-map-about-description>펜션 내 시설 배치를 확인하실 수 있습니다.</p>
+          <div class="img" data-aos="fade-up">
+            <img src="images/con14_1.png" alt="배치도" data-layout-map-image-0 />
           </div>
-          <div class="mapContent" data-aos="fade-up">
-            <div class="mapItem">
-              <img src="images/con14_1.png" alt="배치도" data-layout-map-image-0 />
+        </div>
+
+        <div class="con1">
+          <div class="w1440">
+            <div class="conTitle" data-aos="fade-up">
+              <div class="tx1">ROOM PREVIEW</div>
+              <div class="tx2">
+                여유롭고 특별한 공간<br />
+                <!-- MAPPER: property.name -->
+                <div class="bold spot" data-property-name></div>
+              </div>
+            </div>
+            <div class="swiper-pagination" data-aos="fade-up"></div>
+            <div class="swiperControl">
+              <div class="fraction">
+                <div class="number"></div>
+                <span class="bar">/</span>
+                <div class="total"></div>
+              </div>
+              <div class="navi">
+                <div class="swiper-button-prev">
+                  <img src="images/icon_left_2.png" alt="" />
+                </div>
+                <div class="swiper-button-next">
+                  <img src="images/icon_right_2.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <!-- MAPPER: rooms[].images[0].thumbnail[0].url + name + description -->
+            <div class="swiper right" data-aos="fade-left">
+              <div class="swiper-wrapper" data-index-room-slides></div>
             </div>
           </div>
         </div>
@@ -44,8 +80,10 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/image-helpers.js"></script>
     <script src="js/data-mapper/core/base-mapper.js"></script>
     <script src="js/data-mapper/pages/layout-map-mapper.js"></script>
+    <script src="js/data-mapper/pages/index-mapper.js"></script>
     <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
     <script src="js/header-footer-loader.js"></script>
     <script src="js/common.js"></script>

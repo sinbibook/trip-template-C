@@ -20,13 +20,39 @@
 
     var images = this.getSelectedImages(hero.images || []);
     var wrapper = document.querySelector('[data-room-list-hero-slides]');
-    if (!wrapper || !images.length) return;
+    if (!wrapper) return;
 
     wrapper.innerHTML = '';
+
+    if (!images.length) {
+      var placeholderDiv = document.createElement('div');
+      placeholderDiv.className = 'swiper-slide';
+      var img = document.createElement('img');
+      ImageHelpers.applyPlaceholder(img);
+      img.alt = 'ROOMS';
+      var tx1 = document.createElement('div');
+      tx1.className = 'tx1';
+      tx1.textContent = 'ROOMS';
+      placeholderDiv.appendChild(img);
+      placeholderDiv.appendChild(tx1);
+      wrapper.appendChild(placeholderDiv);
+      return;
+    }
+
     images.forEach(function (img) {
       var div = document.createElement('div');
       div.className = 'swiper-slide';
-      div.innerHTML = '<img src="' + img.url + '" alt="" /><div class="tx1">ROOMS</div>';
+      var imgEl = document.createElement('img');
+      imgEl.src = img.url || '';
+      imgEl.alt = '';
+      if (!img.url) {
+        ImageHelpers.applyPlaceholder(imgEl);
+      }
+      var tx1 = document.createElement('div');
+      tx1.className = 'tx1';
+      tx1.textContent = 'ROOMS';
+      div.appendChild(imgEl);
+      div.appendChild(tx1);
       wrapper.appendChild(div);
     });
   };
@@ -45,15 +71,44 @@
       var card = document.createElement('div');
       card.className = 'roomCard';
       card.setAttribute('data-aos', 'fade-up');
-      card.innerHTML =
-        '<a href="room.html?id=' + room.id + '">' +
-          '<div class="imgOb"><img src="' + thumbUrl + '" alt="" /></div>' +
-          '<div class="info">' +
-            '<div class="name">' + (room.name || '') + '</div>' +
-            '<div class="desc">' + (room.description || room.roomInfo || '') + '</div>' +
-            '<div class="more">VIEW MORE</div>' +
-          '</div>' +
-        '</a>';
+
+      // 이미지 생성
+      var imgEl = document.createElement('img');
+      if (thumbUrl) {
+        imgEl.src = thumbUrl;
+      } else {
+        ImageHelpers.applyPlaceholder(imgEl);
+      }
+      imgEl.alt = room.name || '';
+
+      var imgOb = document.createElement('div');
+      imgOb.className = 'imgOb';
+      imgOb.appendChild(imgEl);
+
+      var name = document.createElement('div');
+      name.className = 'name';
+      name.textContent = room.name || '';
+
+      var desc = document.createElement('div');
+      desc.className = 'desc';
+      desc.textContent = room.description || room.roomInfo || '';
+
+      var more = document.createElement('div');
+      more.className = 'more';
+      more.textContent = 'VIEW MORE';
+
+      var info = document.createElement('div');
+      info.className = 'info';
+      info.appendChild(name);
+      info.appendChild(desc);
+      info.appendChild(more);
+
+      var link = document.createElement('a');
+      link.href = 'room.html?id=' + room.id;
+      link.appendChild(imgOb);
+      link.appendChild(info);
+
+      card.appendChild(link);
       grid.appendChild(card);
     }, this);
   };

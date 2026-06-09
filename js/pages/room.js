@@ -1,4 +1,4 @@
-$(document).ready(function () {
+function initRoomSwipers() {
   // con0 히어로 Swiper
   if ($('.con0 .swiper-slide').length > 1) {
     initSwiper($('.con0'), {
@@ -21,7 +21,7 @@ $(document).ready(function () {
     speed: 1000,
     allowTouchMove: true,
     waitForTransition: false,
-    autoplay: false,
+    autoplay: { delay: 3000, disableOnInteraction: false },
     pagination: {
       el: $('.con1 .swiper-pagination')[0],
       clickable: true,
@@ -47,4 +47,11 @@ $(document).ready(function () {
       1440: { slidesPerView: 3, spaceBetween: 40 },
     },
   });
+}
+
+$(document).ready(function () {
+  // Mapper 완료 후 swiper 초기화
+  setTimeout(function () {
+    initRoomSwipers();
+  }, 100);
 });

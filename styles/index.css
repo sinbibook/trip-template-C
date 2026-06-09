@@ -37,9 +37,18 @@
   display: flex;
   gap: 40px;
 }
+.con5 .imgWrap img {
+  width: 417px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
 @media (max-width: 1440px) {
   .con5 .imgWrap { gap: 20px; }
-  .con5 .imgWrap img { width: calc((100% - 20px) / 2); }
+  .con5 .imgWrap img {
+    width: calc((100% - 20px) / 2);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
 }
 .con5 .t1,
 .con5 .t2 { font-size: 18px; }
