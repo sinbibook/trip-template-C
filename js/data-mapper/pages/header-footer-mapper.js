@@ -11,6 +11,7 @@
     this.mapLogo();
     this.mapBookingLinks();
     this.mapYbsButton();
+    this.checkPageAccess();
     this.mapRoomMenu();
     this.mapFacilityMenu();
     this.mapFooter();
@@ -40,6 +41,46 @@
         });
       }
     });
+  };
+
+  // 페이지 활성화 여부 확인 (enabled=false이면 메뉴 숨김 또는 404 연결)
+  HeaderFooterMapper.prototype.checkPageAccess = function () {
+    var pages = this.getPages();
+
+    // Nearby Attractions 확인
+    var nearbyEnabled = pages.nearbyAttractions &&
+                        pages.nearbyAttractions.sections &&
+                        pages.nearbyAttractions.sections[0] &&
+                        pages.nearbyAttractions.sections[0].enabled !== false;
+
+    // Layout Map 확인
+    var layoutMapEnabled = pages.layoutMap &&
+                           pages.layoutMap.sections &&
+                           pages.layoutMap.sections[0] &&
+                           pages.layoutMap.sections[0].enabled !== false;
+
+    // Nearby Attractions 비활성화: TRAVEL 메뉴 전체 숨김
+    if (!nearbyEnabled) {
+      var menu = document.querySelector('.menu');
+      if (menu) {
+        var travelMenu = null;
+        var depth1s = menu.querySelectorAll('.depth1');
+        depth1s.forEach(function (el) {
+          if (el.querySelector('span') && el.querySelector('span').textContent === 'TRAVEL') {
+            travelMenu = el;
+          }
+        });
+        if (travelMenu) travelMenu.style.display = 'none';
+      }
+    }
+
+    // Layout Map 비활성화: ROOMS > 미리보기 메뉴 항목 숨김
+    if (!layoutMapEnabled) {
+      var layoutLink = document.querySelector('a[href="layout-map.html"]');
+      if (layoutLink) {
+        layoutLink.style.display = 'none';
+      }
+    }
   };
 
   // MAPPER: property.ybsId

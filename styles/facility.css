@@ -29,7 +29,7 @@
 .con12 .tx1 {
   font-size: 100px;
   font-weight: 800;
-  color: #f5f6f8;
+  color: var(--color-primary);
 }
 @media (max-width: 1440px) {
   .con12 .tx1 {
@@ -55,7 +55,7 @@
   font-size: 18px;
   font-weight: 700;
   white-space: nowrap;
-  color: var(--color-primary);
+  color: var(--color-secondary);
 }
 @media (max-width: 1180px) {
   .con12 .img .num,
@@ -232,7 +232,7 @@
 
 .con3 .swiper-pagination-bullet-active {
   position: relative;
-  color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 .con3 .swiper-pagination-bullet-active:after {
@@ -242,5 +242,5 @@
   bottom: 0;
   width: 100%;
   height: 1px;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
 }

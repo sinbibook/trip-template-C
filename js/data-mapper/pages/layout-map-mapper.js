@@ -8,6 +8,16 @@
   LayoutMapMapper.prototype.constructor = LayoutMapMapper;
 
   LayoutMapMapper.prototype.mapPage = function () {
+    // enabled=false이면 404로 리다이렉트
+    var pages = this.getPages();
+    if (!pages.layoutMap ||
+        !pages.layoutMap.sections ||
+        !pages.layoutMap.sections[0] ||
+        pages.layoutMap.sections[0].enabled === false) {
+      window.location.href = '404.html';
+      return;
+    }
+
     this.mapHero();
     this.mapLayoutContent();
   };

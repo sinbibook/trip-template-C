@@ -5,7 +5,7 @@
   margin-bottom: 240px;
   padding-top: 65px;
   padding-bottom: 65px;
-  background-color: #f5f6f8;
+  background-color: var(--color-primary);
 }
 @media (max-width: 1440px) {
   .con5 {

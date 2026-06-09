@@ -63,7 +63,7 @@
 .con14 .address .tx1 {
   margin-top: 35px;
   margin-bottom: 10px;
-  color: var(--color-primary);
+  color: var(--color-secondary);
   font-weight: 700;
 }
 
@@ -93,7 +93,7 @@
   margin-bottom: 220px;
   padding-top: 260px;
   padding-bottom: 260px;
-  background-color: #f5f6f8;
+  background-color: var(--color-primary);
 }
 @media (max-width: 1440px) {
   .con8 {
@@ -224,7 +224,7 @@
 }
 .table_default {
   border-collapse: collapse;
-  border-top: 2px solid var(--color-primary);
+  border-top: 2px solid var(--color-secondary);
   border-bottom: 2px solid #ddd;
   table-layout: fixed;
   width: 100%;
@@ -407,7 +407,7 @@
   }
   .table_default {
     border: 1px solid #ddd;
-    border-top: 2px solid var(--color-primary);
+    border-top: 2px solid var(--color-secondary);
   }
   .table_default th {
     background: #f8f8f8;

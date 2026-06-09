@@ -8,6 +8,16 @@
   NearbyAttractionsMapper.prototype.constructor = NearbyAttractionsMapper;
 
   NearbyAttractionsMapper.prototype.mapPage = function () {
+    // enabled=false이면 404로 리다이렉트
+    var pages = this.getPages();
+    if (!pages.nearbyAttractions ||
+        !pages.nearbyAttractions.sections ||
+        !pages.nearbyAttractions.sections[0] ||
+        pages.nearbyAttractions.sections[0].enabled === false) {
+      window.location.href = '404.html';
+      return;
+    }
+
     this.mapHero();
     this.mapHeroTitle();
     this.mapAttractionCards();

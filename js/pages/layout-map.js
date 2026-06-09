@@ -46,6 +46,21 @@ function initLayoutMapSwipers() {
 }
 
 $(document).ready(function () {
+  // enabled=false이면 404로 리다이렉트
+  document.addEventListener('headerFooterLoaded', function () {
+    var layoutMap = window.templateData && window.templateData.homepage &&
+                    window.templateData.homepage.customFields &&
+                    window.templateData.homepage.customFields.pages &&
+                    window.templateData.homepage.customFields.pages.layoutMap;
+
+    if (layoutMap &&
+        layoutMap.sections &&
+        layoutMap.sections[0] &&
+        layoutMap.sections[0].enabled === false) {
+      window.location.href = '404.html';
+    }
+  });
+
   // Mapper 완료 후 swiper 초기화
   setTimeout(function () {
     initLayoutMapSwipers();

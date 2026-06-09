@@ -24,7 +24,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 150px 20px 100px;
+        padding: 300px 20px 100px;
         text-align: center;
       }
       .errorCode {
@@ -48,11 +48,51 @@
         line-height: 1.8;
         max-width: 480px;
       }
+      /* 404 페이지 버튼 스타일 오버라이드 */
+      .errorContainer .btnBooking_2 {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        width: 250px;
+        height: 55px;
+        border: 1px solid #2d3a80;
+        font-size: 15px;
+        font-weight: 600;
+        font-style: italic;
+        color: #2d3a80;
+        background: linear-gradient(to right, rgba(96, 70, 58, 0) 25%, #2d3a80);
+        background-position: 1% 50%;
+        background-size: 400% 300%;
+        transition: 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        text-decoration: none;
+      }
+      .errorContainer .btnBooking_2:after {
+        content: "";
+        width: 6px;
+        height: 12px;
+        background-image: url(./images/icon_bullet_1.png);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+      }
+      .errorContainer .btnBooking_2:hover {
+        transition: 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        color: #fff;
+        background-position: 99% 50%;
+      }
+      .errorContainer .btnBooking_2:hover:after {
+        background-image: url(./images/icon_bullet_1_2.png);
+      }
       @media (max-width: 1180px) {
         .errorCode { font-size: 80px; }
         .errorTitle { font-size: 22px; }
         .errorMessage { font-size: 14px; }
-        .errorContainer { padding: 100px 20px 80px; }
+        .errorContainer { padding: 300px 20px 80px; }
+        .errorContainer .btnBooking_2 {
+          width: 140px;
+          height: 40px;
+          font-size: 14px;
+        }
       }
     </style>
   </head>
@@ -70,6 +110,7 @@
     </main>
 
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="js/preview-handler.js"></script>
     <script src="js/image-helpers.js"></script>
     <script src="js/data-mapper/core/base-mapper.js"></script>
     <script src="js/data-mapper/pages/header-footer-mapper.js"></script>

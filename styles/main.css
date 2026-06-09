@@ -36,7 +36,7 @@
   display: flex;
   flex-direction: column;
 }
-.con6 .txWrap span:hover { color: var(--color-primary); }
+.con6 .txWrap span:hover { color: var(--color-secondary); }
 .con6 .bottom {
   display: flex;
   align-items: center;

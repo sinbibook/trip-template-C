@@ -43,7 +43,7 @@
 .accordionIcon {
   font-size: 24px;
   font-weight: 300;
-  color: var(--color-primary);
+  color: var(--color-secondary);
   transition: transform 0.3s;
   line-height: 1;
 }
@@ -81,7 +81,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
 }
 
 .tableWrap { overflow-x: auto; }
@@ -101,11 +101,11 @@
   text-align: center;
 }
 .refundTable th {
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
   color: #fff;
   font-weight: 700;
 }
-.refundTable tbody tr:nth-child(even) td { background-color: #f5f6f8; }
+.refundTable tbody tr:nth-child(even) td { background-color: var(--color-primary); }
 
 .bookingWrap {
   margin-top: 60px;
@@ -283,7 +283,7 @@
 }
 
 .con1 .fraction .number {
-  color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 .con1 .fraction .bar {
@@ -396,7 +396,7 @@
   height: 45px;
   margin-top: 20px;
   border-radius: 50%;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
   background-image: url('/assets/images/common/icon_plus.png');
   background-repeat: no-repeat;
   background-position: center;
@@ -489,7 +489,7 @@
   opacity: 1;
   font-size: 28px;
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 @media (max-width: 1440px) {
