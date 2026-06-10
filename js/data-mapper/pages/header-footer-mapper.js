@@ -45,19 +45,24 @@
 
   // 동적 페이지 메뉴 생성 (enabled 값에 따라)
   HeaderFooterMapper.prototype.mapCustomPages = function () {
-    var pages = this.getPages();
+    var data = this.data || {};
 
-    // Nearby Attractions 확인
-    var nearbyEnabled = pages.nearbyAttractions &&
-                        pages.nearbyAttractions.sections &&
-                        pages.nearbyAttractions.sections[0] &&
-                        pages.nearbyAttractions.sections[0].enabled !== false;
+    // enabled 값 안전하게 접근
+    var nearbyEnabled = (data.homepage &&
+                         data.homepage.customFields &&
+                         data.homepage.customFields.pages &&
+                         data.homepage.customFields.pages.nearbyAttractions &&
+                         data.homepage.customFields.pages.nearbyAttractions.sections &&
+                         data.homepage.customFields.pages.nearbyAttractions.sections[0] &&
+                         data.homepage.customFields.pages.nearbyAttractions.sections[0].enabled) !== false;
 
-    // Layout Map 확인
-    var layoutMapEnabled = pages.layoutMap &&
-                           pages.layoutMap.sections &&
-                           pages.layoutMap.sections[0] &&
-                           pages.layoutMap.sections[0].enabled !== false;
+    var layoutMapEnabled = (data.homepage &&
+                            data.homepage.customFields &&
+                            data.homepage.customFields.pages &&
+                            data.homepage.customFields.pages.layoutMap &&
+                            data.homepage.customFields.pages.layoutMap.sections &&
+                            data.homepage.customFields.pages.layoutMap.sections[0] &&
+                            data.homepage.customFields.pages.layoutMap.sections[0].enabled) !== false;
 
     // ===== TRAVEL 메뉴 처리 =====
     var travelSubmenu = document.querySelector('[data-travel-submenu]');

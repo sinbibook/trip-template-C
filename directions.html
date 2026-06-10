@@ -34,7 +34,7 @@
           <!-- MAPPER: property.latitude, property.longitude, property.address -->
           <div class="map_wrap" data-aos="fade-up">
             <div class="map_inner">
-              <div id="daumRoughMap" class="root_daum_roughmap"></div>
+              <div id="kakao-map"></div>
             </div>
           </div>
           <!-- MAPPER: property.address -->
@@ -44,6 +44,14 @@
               도로명 주소 ｜
               <!-- MAPPER: property.address -->
               <span class="underline" data-directions-address></span>
+            </div>
+          </div>
+          <!-- MAPPER: customFields.pages.directions.sections[0].notice.title + description -->
+          <div class="address notice" data-aos="fade-up">
+            <div class="tx1" data-directions-notice-title>이용안내</div>
+            <div class="tx2" data-directions-notice-description>
+              - 버스 이용시 : 00번 버스 이용<br>
+              - 자가 이용시 : 네비게이션에 주소를 검색하고 와주세요.
             </div>
           </div>
         </div>
@@ -84,6 +92,8 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Kakao Map SDK -->
+    <script type="text/javascript" src="js/kakao-maps-sdk.js"></script>
     <script src="js/preview-handler.js"></script>
     <script src="js/image-helpers.js"></script>
     <script src="js/data-mapper/core/base-mapper.js"></script>

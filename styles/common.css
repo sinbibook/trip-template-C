@@ -25,6 +25,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
+html { overflow-y: auto; }
 body { line-height: 1; }
 ol, ul { list-style: none; }
 blockquote, q { quotes: none; }
@@ -64,6 +65,10 @@ body {
   max-width: 1920px;
   margin: 0 auto;
   overflow-x: hidden;
+  scrollbar-width: none;  /* Firefox */
+}
+.wrapper::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari */
 }
 
 .w1440 {
@@ -1070,6 +1075,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   color: #f8f8f8;
+  font-family: var(--font-en-main);
 }
 @media (max-width: 1440px) {
   .con4 .conTitle .tx0 { font-size: 40px; }
@@ -1093,5 +1099,8 @@ body {
 .con4 .t0 .t1 {
   color: var(--color-secondary);
   font-weight: 600;
+}
+.con4 .t0 .t2 {
+  font-family: var(--font-en-main);
 }
 .con4 .t0 .bar { color: #ddd; }

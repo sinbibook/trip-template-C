@@ -186,17 +186,46 @@
   };
 
   // MAPPER: property.name → typing1 (타이핑 섹션)
+  // MAPPER: customFields.pages.index.sections[0].closing.title + description
+  // Fallback: propertyName + hardcoding
   IndexMapper.prototype.mapTypingSection = function () {
+    var pages = this.getPages();
+    var closing = pages.index && pages.index.sections && pages.index.sections[0] && pages.index.sections[0].closing;
     var propertyName = this.getPropertyName();
     var typing1El = document.querySelector('#typing1');
     var typing2El = document.querySelector('#typing2');
 
+    // 이전 타이핑 중복 방지: 요소를 완전히 비우기
+    if (typing1El) typing1El.innerHTML = '';
+    if (typing2El) typing2El.innerHTML = '';
+
+    // typing1: closing.title 또는 propertyName + '에서 사랑하는 사람들과 함께'
     if (typing1El) {
-      typing1El.textContent = propertyName + '에서 사랑하는 사람들과 함께';
+      if (closing && closing.title) {
+        typing1El.textContent = closing.title;
+      } else {
+        typing1El.textContent = propertyName + '에서 사랑하는 사람들과 함께';
+      }
     }
 
+    // typing2: closing.description 또는 '특별하고 소중한 시간을 보내보세요'
     if (typing2El) {
-      typing2El.textContent = '특별하고 소중한 시간을 보내보세요';
+      if (closing && closing.description) {
+        typing2El.textContent = closing.description;
+      } else {
+        typing2El.textContent = '특별하고 소중한 시간을 보내보세요';
+      }
+    }
+
+    // 타이핑 효과 실행
+    if (window.typingEffect) {
+      window.typingEffect(
+        jQuery('#typing1'),
+        jQuery('#typing2'),
+        jQuery('#cursor1'),
+        jQuery('#cursor2'),
+        jQuery('.typing-container')
+      );
     }
   };
 

@@ -32,9 +32,11 @@
         <!-- MAPPER: customFields.pages.layout-map.sections[0].about + images -->
         <div class="con14 w1440">
           <div class="conTitle" data-aos="fade-up">
-            <div class="tx1">ROOM PREVIEW</div>
+            <!-- MAPPER: customFields.pages.layoutMap.sections[0].hero.title (우선) / fallback: ROOM PREVIEW -->
+            <div class="tx1" data-layout-map-hero-title>ROOM PREVIEW</div>
+            <!-- MAPPER: customFields.pages.layoutMap.sections[0].hero.description (우선) / fallback: 객실 배치도 -->
             <div class="tx2">
-              <span class="bold spot">객실 배치도</span>
+              <span class="bold spot" data-layout-map-hero-description>객실 배치도</span>
             </div>
           </div>
           <div class="img" data-aos="fade-up">
@@ -46,7 +48,8 @@
           <div class="w1440">
             <div class="conTitle" data-aos="fade-up">
               <div class="tx1">ROOM PREVIEW</div>
-              <div class="tx2">
+              <!-- MAPPER: customFields.pages.layoutMap.sections[0].hero.description (우선) 또는 기본값 -->
+              <div class="tx2" data-layout-map-room-preview-title>
                 여유롭고 특별한 공간<br />
                 <!-- MAPPER: property.name -->
                 <div class="bold spot" data-property-name></div>
@@ -84,7 +87,6 @@
     <script src="js/image-helpers.js"></script>
     <script src="js/data-mapper/core/base-mapper.js"></script>
     <script src="js/data-mapper/pages/layout-map-mapper.js"></script>
-    <script src="js/data-mapper/pages/index-mapper.js"></script>
     <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
     <script src="js/header-footer-loader.js"></script>
     <script src="js/common.js"></script>

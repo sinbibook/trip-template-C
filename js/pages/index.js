@@ -61,12 +61,7 @@ function initIndexSwipers() {
     },
   });
 
-  // con4 타이핑 효과
-  typingEffect(
-    $('#typing1'), $('#typing2'),
-    $('#cursor1'), $('#cursor2'),
-    $('.typing-container')
-  );
+  // con4 타이핑 효과는 mapTypingSection()에서 직접 호출됨
 }
 
 $(document).ready(function () {

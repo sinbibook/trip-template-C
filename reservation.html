@@ -34,10 +34,10 @@
 
           <!-- MAPPER: property.usageGuide, reservationGuide, checkInOutInfo; property.refundPolicies -->
           <div class="reservationWrap" data-aos="fade-up">
-            <!-- MAPPER: property.usageGuide -->
+            <!-- MAPPER: customFields.pages.reservation.sections[0].about.title (우선), property.usageGuide (내용) -->
             <div class="accordion">
               <div class="accordionHeader" data-target="usage-content">
-                <span class="accordionTitle">이용안내</span>
+                <span class="accordionTitle" data-reservation-usage-title>이용안내</span>
                 <span class="accordionIcon">+</span>
               </div>
               <div class="accordionContent active" id="usage-content" data-reservation-usage-content></div>
@@ -59,6 +59,18 @@
                 <span class="accordionIcon">+</span>
               </div>
               <div class="accordionContent active" id="checkin-content" data-reservation-checkin-content></div>
+            </div>
+
+            <!-- MAPPER: customFields.pages.reservation.about (title, images, description) -->
+            <div class="accordion" data-reservation-about-accordion>
+              <div class="accordionHeader" data-target="about-content">
+                <span class="accordionTitle" data-reservation-about-title>예약 정보</span>
+                <span class="accordionIcon">+</span>
+              </div>
+              <div class="accordionContent active" id="about-content">
+                <div data-reservation-about-images></div>
+                <div data-reservation-about-description></div>
+              </div>
             </div>
 
           </div>

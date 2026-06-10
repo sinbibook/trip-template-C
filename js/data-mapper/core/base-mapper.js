@@ -46,7 +46,18 @@
   };
 
   BaseDataMapper.prototype.getPages = function () {
-    return this.getCustomFields().pages || {};
+    // localhost 경로: this.data.homepage.customFields.pages
+    var pagesFromHomepage = this.getCustomFields().pages;
+    if (pagesFromHomepage && Object.keys(pagesFromHomepage).length > 0) {
+      return pagesFromHomepage;
+    }
+
+    // preview 경로: this.data.customFields.pages
+    if (this.data && this.data.customFields && this.data.customFields.pages) {
+      return this.data.customFields.pages;
+    }
+
+    return {};
   };
 
   // customFields.property.name 우선, 없으면 property.name
@@ -86,7 +97,21 @@
     return list.length ? list[0].url : '';
   };
 
-  // ── DOM 유틸 ────────────────────────────────────────────
+    // 데이터 변환 (스네이크 케이스 → 카멜 케이스)
+  BaseDataMapper.prototype.convertToCamelCase = function (obj) {
+    if (Array.isArray(obj)) {
+      return obj.map((item) => this.convertToCamelCase(item));
+    } else if (obj !== null && typeof obj === 'object') {
+      return Object.keys(obj).reduce((result, key) => {
+        const camelKey = key.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
+        result[camelKey] = this.convertToCamelCase(obj[key]);
+        return result;
+      }, {});
+    }
+    return obj;
+  };
+
+// ── DOM 유틸 ────────────────────────────────────────────
   BaseDataMapper.prototype.setTextIfExist = function (selector, value) {
     var el = document.querySelector(selector);
     if (el && value !== undefined && value !== null) el.textContent = value;

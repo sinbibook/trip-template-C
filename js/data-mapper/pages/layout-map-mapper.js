@@ -18,8 +18,19 @@
       return;
     }
 
+    this.mapPropertyName();
     this.mapHero();
     this.mapLayoutContent();
+    this.mapRoomPreview();
+  };
+
+  // MAPPER: property.name → 숙소명
+  LayoutMapMapper.prototype.mapPropertyName = function () {
+    var propertyName = this.getPropertyName();
+    var propertyNameEl = document.querySelector('[data-property-name]');
+    if (propertyNameEl) {
+      propertyNameEl.textContent = propertyName;
+    }
   };
 
   // MAPPER: customFields.pages.layoutMap.sections[0].hero.images[isSelected]
@@ -73,6 +84,18 @@
         heroImg.style.backgroundSize = 'cover';
       }
     }
+
+    // hero.title을 "ROOM PREVIEW" 영역에 매핑 (1순위) / fallback: 현재값
+    var heroTitleEl = document.querySelector('[data-layout-map-hero-title]');
+    if (heroTitleEl && hero.title && hero.title.trim()) {
+      heroTitleEl.textContent = hero.title;
+    }
+
+    // hero.description을 "객실 배치도" 영역에 매핑 (1순위) / fallback: 현재값
+    var heroDescEl = document.querySelector('[data-layout-map-hero-description]');
+    if (heroDescEl && hero.description && hero.description.trim()) {
+      heroDescEl.textContent = hero.description;
+    }
   };
 
   // MAPPER: customFields.pages.layoutMap.sections[0].about (이미지 + 설명)
@@ -112,6 +135,43 @@
         }
       }
     }
+  };
+
+  // MAPPER: rooms[].images[0].thumbnail[0].url + name + description
+  LayoutMapMapper.prototype.mapRoomPreview = function () {
+    var rooms = (this.data && this.data.rooms) || [];
+    var wrapper = document.querySelector('[data-index-room-slides]');
+    if (!wrapper || !rooms.length) return;
+
+    wrapper.innerHTML = '';
+    rooms.forEach(function (room) {
+      var self = this;
+      var thumbUrl = self.getFirstSelectedImage(
+        room.images && room.images[0] && room.images[0].thumbnail || []
+      );
+      var div = document.createElement('div');
+      div.className = 'swiper-slide';
+      div.setAttribute('data-title', room.name || '');
+
+      var img = document.createElement('img');
+      if (thumbUrl) {
+        img.src = thumbUrl;
+      } else {
+        ImageHelpers.applyPlaceholder(img);
+      }
+
+      var a = document.createElement('a');
+      a.href = 'room.html?id=' + room.id;
+      a.className = 'tx';
+      a.innerHTML =
+        '<div class="tx1">' + (room.name || '') + '</div>' +
+        '<div class="tx2">' + (room.description || '') + '</div>' +
+        '<div class="more"></div>';
+
+      div.appendChild(img);
+      div.appendChild(a);
+      wrapper.appendChild(div);
+    }, this);
   };
 
   document.addEventListener('DOMContentLoaded', function () {

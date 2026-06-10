@@ -61,3 +61,16 @@
   .con5 .t1 { margin-top: 0; }
 }
 .con5 .btnBooking_2 { margin-top: 25px; }
+
+/* ============================================================
+   English Font for ROOM PREVIEW & SPECIAL PREVIEW
+   ============================================================ */
+/* ROOM PREVIEW - con1 */
+.con1 .conTitle .tx1 {
+  font-family: var(--font-en-main);
+}
+
+/* SPECIAL PREVIEW - con3 */
+.con3 .conTitle .tx1 {
+  font-family: var(--font-en-main);
+}

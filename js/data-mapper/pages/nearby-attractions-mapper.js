@@ -65,6 +65,8 @@
     });
   };
 
+  // MAPPER: customFields.pages.nearbyAttractions.sections[0].hero (title, description)
+  // Fallback: "TRAVL" + "여행하기 좋은도시"
   NearbyAttractionsMapper.prototype.mapHeroTitle = function () {
     var pages = this.getPages();
     var page = pages.nearbyAttractions;
@@ -73,11 +75,25 @@
     var hero = page.sections[0].hero;
     if (!hero) return;
 
+    // Hero 제목: hero.title 우선, "TRAVL" fallback
     var titleEl = document.querySelector('[data-nearby-attractions-hero-title]');
-    if (titleEl && hero.title) titleEl.textContent = hero.title;
+    if (titleEl) {
+      if (hero.title && hero.title.trim()) {
+        titleEl.textContent = hero.title;
+      } else {
+        titleEl.textContent = 'TRAVL';
+      }
+    }
 
+    // Hero 설명: hero.description 우선, "여행하기 좋은도시" fallback
     var descEl = document.querySelector('[data-nearby-attractions-hero-description]');
-    if (descEl && hero.description) descEl.textContent = hero.description;
+    if (descEl) {
+      if (hero.description && hero.description.trim()) {
+        descEl.textContent = hero.description;
+      } else {
+        descEl.textContent = '여행하기 좋은도시';
+      }
+    }
   };
 
   NearbyAttractionsMapper.prototype.mapAttractionCards = function () {
@@ -92,15 +108,17 @@
     if (!itemWrap) return;
 
     itemWrap.innerHTML = '';
-    about.forEach(function (item) {
+    about.forEach(function (item, itemIndex) {
       var div = document.createElement('div');
       div.className = 'item';
       div.setAttribute('data-aos', 'fade-up');
 
-      // Get first selected image
+      // Get first selected image (또는 첫 번째 이미지)
       var images = item.images || [];
-      var selectedImage = images.find(function (img) { return img.isSelected; }) || images[0];
-      var selectedImageIndex = images.findIndex(function (img) { return img.isSelected; });
+      if (!images.length) return; // 이미지가 없으면 스킵
+
+      var selectedImage = images.find(function (img) { return img && img.isSelected; }) || images[0];
+      var selectedImageIndex = images.findIndex(function (img) { return img && img.isSelected; });
       if (selectedImageIndex === -1) selectedImageIndex = 0;
 
       // Create img element with placeholder handling
@@ -115,16 +133,31 @@
 
       div.appendChild(img);
 
-      // Get distance info from selected image description
-      var distanceInfo = (selectedImage && selectedImage.description) ? selectedImage.description : '';
-
+      // tx1: title + bar + distance (image description)
       var tx1 = document.createElement('div');
       tx1.className = 'tx1';
-      tx1.innerHTML =
-        '<span class="bold">' + (item.title || '') + '</span>' +
-        '<span class="bar">｜</span>' +
-        distanceInfo;
 
+      var titleSpan = document.createElement('span');
+      titleSpan.className = 'bold';
+      titleSpan.textContent = item.title || '';
+
+      tx1.appendChild(titleSpan);
+
+      // distance info가 있으면 bar + distance 추가
+      var distanceInfo = selectedImage?.description || '';
+
+      if (distanceInfo && distanceInfo.trim()) {
+        var barSpan = document.createElement('span');
+        barSpan.className = 'bar';
+        barSpan.textContent = '｜';
+        tx1.appendChild(barSpan);
+
+        var distanceSpan = document.createElement('span');
+        distanceSpan.textContent = distanceInfo;
+        tx1.appendChild(distanceSpan);
+      }
+
+      // tx2: item description
       var tx2 = document.createElement('div');
       tx2.className = 'tx2';
       tx2.textContent = item.description || '';

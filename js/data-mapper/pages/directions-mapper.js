@@ -7,9 +7,14 @@
   DirectionsMapper.prototype = Object.create(BaseDataMapper.prototype);
   DirectionsMapper.prototype.constructor = DirectionsMapper;
 
+  // Kakao Map 설정 상수
+  DirectionsMapper.KAKAO_MAP_ZOOM_LEVEL = 5;
+  DirectionsMapper.SDK_WAIT_INTERVAL = 100; // ms
+
   DirectionsMapper.prototype.mapPage = function () {
     this.mapHero();
     this.mapAddress();
+    this.mapNotice();
     this.mapTypingSection();
     this.mapConFooterInfo();
     this.mapDaumMap();
@@ -18,8 +23,14 @@
 
   // MAPPER: customFields.pages.directions.sections[0].hero.images[isSelected]
   DirectionsMapper.prototype.mapHero = function () {
-    var pages = this.getPages();
-    var hero = pages.directions && pages.directions.sections && pages.directions.sections[0] && pages.directions.sections[0].hero;
+    var data = this.data || {};
+    var hero = data.homepage &&
+               data.homepage.customFields &&
+               data.homepage.customFields.pages &&
+               data.homepage.customFields.pages.directions &&
+               data.homepage.customFields.pages.directions.sections &&
+               data.homepage.customFields.pages.directions.sections[0] &&
+               data.homepage.customFields.pages.directions.sections[0].hero;
     if (!hero) return;
 
     var images = this.getSelectedImages(hero.images || []);
@@ -55,29 +66,54 @@
     });
   };
 
-  // MAPPER: property.latitude, property.longitude → 다음 Rough Map
+  // MAPPER: property.latitude, property.longitude → 카카오 지도
   DirectionsMapper.prototype.mapDaumMap = function () {
     var property = this.getProperty();
     if (!property.latitude || !property.longitude) return;
 
-    var container = document.getElementById('daumRoughMap');
+    var container = document.getElementById('kakao-map');
     if (!container) return;
 
-    var options = {
-      center: new daum.maps.LatLng(property.latitude, property.longitude),
-      level: 3,
-      scrollwheel: false,
-      draggable: false
+    // 지도 생성 함수
+    var createMap = function () {
+      try {
+        var options = {
+          center: new kakao.maps.LatLng(property.latitude, property.longitude),
+          level: DirectionsMapper.KAKAO_MAP_ZOOM_LEVEL,
+          scrollwheel: false,
+          draggable: false
+        };
+
+        var map = new kakao.maps.Map(container, options);
+
+        // 마커 표시
+        var markerPosition = new kakao.maps.LatLng(property.latitude, property.longitude);
+        var marker = new kakao.maps.Marker({
+          position: markerPosition
+        });
+        marker.setMap(map);
+      } catch (error) {
+        console.error('Failed to create Kakao Map:', error);
+      }
     };
 
-    var map = new daum.maps.Map(container, options);
+    // SDK 로드 확인 및 재시도
+    var checkSdkAndLoad = function (retryCount) {
+      retryCount = retryCount || 0;
+      var MAX_RETRIES = 20; // 20 * 100ms = 2초
 
-    // 마커 표시
-    var markerPosition = new daum.maps.LatLng(property.latitude, property.longitude);
-    var marker = new daum.maps.Marker({
-      position: markerPosition
-    });
-    marker.setMap(map);
+      if (window.kakao && window.kakao.maps && window.kakao.maps.load) {
+        window.kakao.maps.load(createMap);
+      } else if (retryCount < MAX_RETRIES) {
+        setTimeout(function () {
+          checkSdkAndLoad(retryCount + 1);
+        }, DirectionsMapper.SDK_WAIT_INTERVAL);
+      } else {
+        console.error('Failed to load Kakao Map SDK after multiple retries.');
+      }
+    };
+
+    checkSdkAndLoad();
   };
 
   // MAPPER: property.address → con14 주소 텍스트
@@ -85,6 +121,40 @@
     var address = this.getProperty().address || '';
     var el = document.querySelector('[data-directions-address]');
     if (el) el.textContent = address;
+  };
+
+  // MAPPER: customFields.pages.directions.sections[0].notice.title + description
+  DirectionsMapper.prototype.mapNotice = function () {
+    var data = this.data || {};
+    var notice = data.homepage &&
+                 data.homepage.customFields &&
+                 data.homepage.customFields.pages &&
+                 data.homepage.customFields.pages.directions &&
+                 data.homepage.customFields.pages.directions.sections &&
+                 data.homepage.customFields.pages.directions.sections[0] &&
+                 data.homepage.customFields.pages.directions.sections[0].notice;
+    var noticeEl = document.querySelector('.notice');
+
+    if (!notice || !notice.title) {
+      // notice 데이터가 없으면 섹션 숨김
+      if (noticeEl) noticeEl.style.display = 'none';
+      return;
+    }
+
+    // notice가 있으면 섹션 표시
+    if (noticeEl) noticeEl.style.display = 'block';
+
+    // 이용안내 제목
+    var titleEl = document.querySelector('[data-directions-notice-title]');
+    if (titleEl && notice.title) {
+      titleEl.textContent = notice.title;
+    }
+
+    // 이용안내 설명
+    var descEl = document.querySelector('[data-directions-notice-description]');
+    if (descEl && notice.description) {
+      descEl.innerHTML = notice.description.replace(/\n/g, '<br>');
+    }
   };
 
   // MAPPER: property.name + property.nameEn → con4 하단 숙소명 영역

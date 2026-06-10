@@ -26,10 +26,16 @@
     padding-bottom: 80px;
   }
 }
+/* SPECIAL PREVIEW 제목 - 영문 폰트 */
+.con3 .conTitle .tx1 {
+  font-family: var(--font-en-main);
+}
+
 .con12 .tx1 {
   font-size: 100px;
   font-weight: 800;
   color: var(--color-primary);
+  font-family: var(--font-en-main);
 }
 @media (max-width: 1440px) {
   .con12 .tx1 {

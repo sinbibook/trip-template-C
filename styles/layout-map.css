@@ -97,3 +97,8 @@
   width: 100%;
   display: block;
 }
+
+/* ROOM PREVIEW 제목 - 영문 폰트 */
+.con14 .conTitle .tx1 {
+  font-family: var(--font-en-main);
+}
