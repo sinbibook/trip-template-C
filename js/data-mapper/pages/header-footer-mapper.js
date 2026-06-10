@@ -11,7 +11,7 @@
     this.mapLogo();
     this.mapBookingLinks();
     this.mapYbsButton();
-    this.checkPageAccess();
+    this.mapCustomPages();
     this.mapRoomMenu();
     this.mapFacilityMenu();
     this.mapFooter();
@@ -43,8 +43,8 @@
     });
   };
 
-  // 페이지 활성화 여부 확인 (enabled=false이면 메뉴 숨김 또는 404 연결)
-  HeaderFooterMapper.prototype.checkPageAccess = function () {
+  // 동적 페이지 메뉴 생성 (enabled 값에 따라)
+  HeaderFooterMapper.prototype.mapCustomPages = function () {
     var pages = this.getPages();
 
     // Nearby Attractions 확인
@@ -59,26 +59,55 @@
                            pages.layoutMap.sections[0] &&
                            pages.layoutMap.sections[0].enabled !== false;
 
-    // Nearby Attractions 비활성화: TRAVEL 메뉴 전체 숨김
-    if (!nearbyEnabled) {
-      var menu = document.querySelector('.menu');
-      if (menu) {
-        var travelMenu = null;
-        var depth1s = menu.querySelectorAll('.depth1');
-        depth1s.forEach(function (el) {
-          if (el.querySelector('span') && el.querySelector('span').textContent === 'TRAVEL') {
-            travelMenu = el;
-          }
-        });
+    // ===== TRAVEL 메뉴 처리 =====
+    var travelSubmenu = document.querySelector('[data-travel-submenu]');
+    var travelMenu = document.querySelector('[data-travel-menu]');
+
+    if (travelSubmenu) {
+      // 기존 링크 제거
+      var existingLink = travelSubmenu.querySelector('[data-menu-id="nearby-attractions"]');
+      if (existingLink) {
+        existingLink.remove();
+      }
+
+      if (nearbyEnabled) {
+        // enabled=true이면 메뉴 표시 및 링크 추가
+        if (travelMenu) travelMenu.style.display = 'block';
+
+        var nearbyLink = document.createElement('a');
+        nearbyLink.href = 'nearby-attractions.html';
+        nearbyLink.textContent = '주변여행지';
+        nearbyLink.setAttribute('data-menu-id', 'nearby-attractions');
+        travelSubmenu.appendChild(nearbyLink);
+      } else {
+        // enabled=false이면 메뉴 숨김
         if (travelMenu) travelMenu.style.display = 'none';
       }
     }
 
-    // Layout Map 비활성화: ROOMS > 미리보기 메뉴 항목 숨김
-    if (!layoutMapEnabled) {
-      var layoutLink = document.querySelector('a[href="layout-map.html"]');
-      if (layoutLink) {
-        layoutLink.style.display = 'none';
+    // ===== ROOMS > 미리보기 처리 =====
+    var roomsSubmenu = document.querySelector('[data-rooms-submenu]');
+
+    if (roomsSubmenu) {
+      // 기존 링크 제거
+      var existingLink = roomsSubmenu.querySelector('[data-menu-id="layout-map"]');
+      if (existingLink) {
+        existingLink.remove();
+      }
+
+      if (layoutMapEnabled) {
+        // enabled=true이면 링크 추가
+        var layoutLink = document.createElement('a');
+        layoutLink.href = 'layout-map.html';
+        layoutLink.textContent = '미리보기';
+        layoutLink.setAttribute('data-menu-id', 'layout-map');
+        // 객실 목록 앞에 추가
+        var roomListLink = roomsSubmenu.querySelector('[data-room-menu-link]');
+        if (roomListLink) {
+          roomsSubmenu.insertBefore(layoutLink, roomListLink);
+        } else {
+          roomsSubmenu.appendChild(layoutLink);
+        }
       }
     }
   };

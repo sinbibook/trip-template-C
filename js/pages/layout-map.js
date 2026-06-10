@@ -46,23 +46,23 @@ function initLayoutMapSwipers() {
 }
 
 $(document).ready(function () {
-  // enabled=false이면 404로 리다이렉트
-  document.addEventListener('headerFooterLoaded', function () {
-    var layoutMap = window.templateData && window.templateData.homepage &&
-                    window.templateData.homepage.customFields &&
-                    window.templateData.homepage.customFields.pages &&
-                    window.templateData.homepage.customFields.pages.layoutMap;
-
-    if (layoutMap &&
-        layoutMap.sections &&
-        layoutMap.sections[0] &&
-        layoutMap.sections[0].enabled === false) {
-      window.location.href = '404.html';
-    }
-  });
-
   // Mapper 완료 후 swiper 초기화
   setTimeout(function () {
     initLayoutMapSwipers();
   }, 100);
 });
+
+// enabled 상태 확인 (preview-handler 데이터 업데이트 시)
+// preview-handler가 없으면 localhost이므로 체크 안 함
+function checkLayoutMapEnabled() {
+  if (!window.previewHandler) return;
+
+  if (window.previewHandler.currentData) {
+    const layoutEnabled = window.previewHandler.currentData?.homepage?.customFields?.pages?.layoutMap?.sections?.[0]?.enabled;
+    if (layoutEnabled === false) {
+      window.location.href = '404.html';
+      return;
+    }
+  }
+}
+window._checkPageEnabled = checkLayoutMapEnabled;

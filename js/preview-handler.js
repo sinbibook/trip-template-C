@@ -557,6 +557,11 @@ class PreviewHandler {
             headerFooterMapper.isDataLoaded = true;
             await headerFooterMapper.mapPage();
         }
+
+        // 각 페이지별 enabled 상태 확인 (페이지 스크립트에서 정의한 함수 호출)
+        if (window._checkPageEnabled) {
+            window._checkPageEnabled();
+        }
     }
 
     /**
